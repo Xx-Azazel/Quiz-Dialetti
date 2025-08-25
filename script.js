@@ -9,38 +9,23 @@ const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answer-buttons');
 const scoreElement = document.getElementById('score');
 
+let allQuestions = [];
 let shuffledQuestions, currentQuestionIndex;
 let score = 0;
 
-const questions = [
-    {
-        question: 'Qual è la capitale d\'Italia?',
-        answers: [
-            { text: 'Roma', correct: true },
-            { text: 'Milano', correct: false },
-            { text: 'Napoli', correct: false },
-            { text: 'Torino', correct: false }
-        ]
-    },
-    {
-        question: 'Quanto fa 2 + 2?',
-        answers: [
-            { text: '4', correct: true },
-            { text: '3', correct: false },
-            { text: '5', correct: false },
-            { text: '22', correct: false }
-        ]
-    },
-    {
-        question: 'Quale pianeta è conosciuto come il "Pianeta Rosso"?',
-        answers: [
-            { text: 'Marte', correct: true },
-            { text: 'Giove', correct: false },
-            { text: 'Venere', correct: false },
-            { text: 'Saturno', correct: false }
-        ]
-    }
-];
+// Carica le domande dal file JSON
+fetch('questions.json')
+    .then(res => res.json())
+    .then(data => {
+        allQuestions = data;
+        startButton.disabled = false; // Abilita il pulsante solo dopo aver caricato le domande
+        startButton.innerText = 'Inizia';
+    })
+    .catch(err => {
+        console.error("Errore nel caricamento delle domande:", err);
+        questionElement.innerText = "Impossibile caricare le domande. Controlla il file questions.json e ricarica la pagina.";
+    });
+
 
 startButton.addEventListener('click', startGame);
 nextButton.addEventListener('click', () => {
@@ -54,7 +39,7 @@ function startGame() {
     startScreen.classList.add('hidden');
     resultScreen.classList.add('hidden');
     quizScreen.classList.remove('hidden');
-    shuffledQuestions = questions.sort(() => Math.random() - 0.5);
+    shuffledQuestions = allQuestions.sort(() => Math.random() - 0.5);
     currentQuestionIndex = 0;
     setNextQuestion();
 }
@@ -121,5 +106,5 @@ function clearStatusClass(element) {
 function showResult() {
     quizScreen.classList.add('hidden');
     resultScreen.classList.remove('hidden');
-    scoreElement.innerText = score + ' su ' + questions.length;
+    scoreElement.innerText = score + ' su ' + allQuestions.length;
 }

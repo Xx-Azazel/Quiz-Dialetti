@@ -3,34 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Interattivo</title>
+    <title>Quiz: Proverbi in Dialetto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header class="site-header">
+        <h1>Proverbi in dialetto</h1>
+    </header>
     <div class="container">
         <div id="start-screen">
-            <h1>Benvenuto al Quiz!</h1>
-            <p>Premi il pulsante per iniziare.</p>
-            <button id="start-button">Inizia</button>
+            <h2>Benvenuto al Quiz</h2>
+            <p>Metti alla prova la tua conoscenza dei proverbi locali.</p>
+            <button id="start-button" disabled>Caricamento...</button>
         </div>
         <div id="quiz-screen" class="hidden">
             <div id="question-container">
                 <h2 id="question">Domanda</h2>
                 <div id="answer-buttons" class="btn-grid">
-                    <button class="btn">Risposta 1</button>
-                    <button class="btn">Risposta 2</button>
-                    <button class="btn">Risposta 3</button>
-                    <button class="btn">Risposta 4</button>
+                    <!-- I pulsanti delle risposte verranno generati qui da JS -->
                 </div>
             </div>
             <div class="controls">
-                <button id="next-button" class="next-btn hidden">Prossima</button>
+                <button id="next-button" class="next-btn hidden">Prossima Domanda</button>
             </div>
         </div>
         <div id="result-screen" class="hidden">
-            <h2>Quiz Terminato!</h2>
-            <p>Il tuo punteggio è: <span id="score">0</span></p>
-            <button id="restart-button">Ricomincia</button>
+            <h2>Quiz Terminato</h2>
+            <p>Il tuo punteggio finale è: <span id="score">0</span></p>
+            <button id="restart-button">Riprova il Quiz</button>
         </div>
     </div>
     <script src="script.js"></script>

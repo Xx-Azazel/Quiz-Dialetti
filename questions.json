@@ -1,0 +1,92 @@
+[
+    {
+        "question": "Proverbio Veneto: 'Chi no ga testa, ga gambe.' Cosa significa?",
+        "answers": [
+            { "text": "Chi è testardo va lontano", "correct": false },
+            { "text": "Chi non usa il cervello deve faticare di più fisicamente", "correct": true },
+            { "text": "Le persone intelligenti sono pigre", "correct": false },
+            { "text": "Bisogna essere forti per avere successo", "correct": false }
+        ]
+    },
+    {
+        "question": "Proverbio Napoletano: 'A' gatta p' a pressa facette 'e figlie cecate.' Cosa significa?",
+        "answers": [
+            { "text": "I gatti sono animali frettolosi", "correct": false },
+            { "text": "L'amore materno a volte è cieco", "correct": false },
+            { "text": "La fretta porta a fare le cose male", "correct": true },
+            { "text": "Bisogna aiutare chi è in difficoltà", "correct": false }
+        ]
+    },
+    {
+        "question": "Proverbio Siciliano: 'Cu mancia fa muddichi.' Cosa significa?",
+        "answers": [
+            { "text": "Chi mangia tanto ingrassa", "correct": false },
+            { "text": "Solo chi agisce può commettere errori", "correct": true },
+            { "text": "Non si deve sprecare il cibo", "correct": false },
+            { "text": "Chi è ricco lascia le briciole ai poveri", "correct": false }
+        ]
+    },
+    {
+        "question": "Proverbio Romano: 'Fidete de li cani e no de li cristiani.' Cosa significa?",
+        "answers": [
+            { "text": "Gli animali sono meglio delle persone", "correct": false },
+            { "text": "I cani sono i migliori amici dell'uomo", "correct": false },
+            { "text": "A volte gli animali sono più affidabili degli esseri umani", "correct": true },
+            { "text": "Non bisogna fidarsi di nessuno", "correct": false }
+        ]
+    },
+    {
+        "question": "Proverbio Milanese: 'Ofelée, fa el tò mestée.' Cosa significa?",
+        "answers": [
+            { "text": "Ognuno deve pensare ai propri affari e non a quelli degli altri", "correct": true },
+            { "text": "Il pasticcere è un mestiere difficile", "correct": false },
+            { "text": "Bisogna sempre fare dolci per gli amici", "correct": false },
+            { "text": "L'apparenza inganna", "correct": false }
+        ]
+    },
+    {
+        "question": "Proverbio Pugliese: 'Ce s'àcchija, s'àcchija.' Cosa significa?",
+        "answers": [
+            { "text": "Chi cerca trova", "correct": false },
+            { "text": "Bisogna accontentarsi di ciò che si trova", "correct": true },
+            { "text": "La fortuna aiuta gli audaci", "correct": false },
+            { "text": "Tutto ha un prezzo", "correct": false }
+        ]
+    },
+    {
+        "question": "Proverbio Toscano: 'L'acqua cheta rovina i ponti.' Cosa significa?",
+        "answers": [
+            { "text": "Le persone silenziose e apparentemente innocue possono essere le più pericolose", "correct": true },
+            { "text": "Le inondazioni sono pericolose", "correct": false },
+            { "text": "Il silenzio è d'oro", "correct": false },
+            { "text": "L'acqua è un elemento potente", "correct": false }
+        ]
+    },
+    {
+        "question": "Proverbio Genovese: 'Chi vêu navegâ, bezêugna saveî nuâ.' Cosa significa?",
+        "answers": [
+            { "text": "Per viaggiare in mare bisogna essere ricchi", "correct": false },
+            { "text": "Chi vuole intraprendere un'attività, deve conoscerne i rischi e i fondamenti", "correct": true },
+            { "text": "I marinai devono saper nuotare", "correct": false },
+            { "text": "Non si può avere tutto dalla vita", "correct": false }
+        ]
+    },
+    {
+        "question": "Proverbio Sardo: 'Chie furat pagu, furat meda.' Cosa significa?",
+        "answers": [
+            { "text": "Chi ruba poco non è un vero ladro", "correct": false },
+            { "text": "Bisogna punire severamente i ladri", "correct": false },
+            { "text": "Chi commette una piccola disonestà è capace di commetterne anche di più grandi", "correct": true },
+            { "text": "La ricchezza si accumula a poco a poco", "correct": false }
+        ]
+    },
+    {
+        "question": "Proverbio Piemontese: 'A val pì la pratica che la gramatica.' Cosa significa?",
+        "answers": [
+            { "text": "L'esperienza pratica è più importante della teoria", "correct": true },
+            { "text": "La grammatica non è importante", "correct": false },
+            { "text": "Per imparare bisogna studiare molto", "correct": false },
+            { "text": "Le persone pratiche non conoscono la grammatica", "correct": false }
+        ]
+    }
+]
