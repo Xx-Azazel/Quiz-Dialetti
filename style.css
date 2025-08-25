@@ -171,20 +171,30 @@ body {
 }
 
 .btn.correct {
-    background-color: var(--correct-color);
-    border-color: var(--correct-color);
-    color: var(--white);
+    background: linear-gradient(135deg, #228B22 0%, #32CD32 100%);
+    border-color: #228B22;
+    color: #FFFFFF;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(34, 139, 34, 0.3);
 }
 
 .btn.wrong {
-    background-color: var(--wrong-color);
-    border-color: var(--wrong-color);
-    color: var(--white);
+    background: linear-gradient(135deg, #654321 0%, #2F1B14 100%);
+    border-color: #654321;
+    color: #FFFFFF;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(101, 67, 33, 0.3);
+}
+
+.btn.correct::before,
+.btn.wrong::before {
+    opacity: 0;
 }
 
 .btn:disabled {
     cursor: not-allowed;
-    opacity: 0.7;
+    opacity: 0.9;
+    transform: none;
 }
 
 .controls {
