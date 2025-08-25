@@ -1,6 +1,6 @@
 [
     {
-        "question": "Proverbio Veneto: 'Chi no ga testa, ga gambe.' Cosa significa?",
+        "question": "Proverbio Veneto: \n'Chi no ga testa, ga gambe.' \nCosa significa?",
         "answers": [
             { "text": "Chi è testardo va lontano", "correct": false },
             { "text": "Chi non usa il cervello deve faticare di più fisicamente", "correct": true },
@@ -9,7 +9,7 @@
         ]
     },
     {
-        "question": "Proverbio Napoletano: 'A' gatta p' a pressa facette 'e figlie cecate.' Cosa significa?",
+        "question": "Proverbio Napoletano: \n'A' gatta p' a pressa facette 'e figlie cecate.' \nCosa significa?",
         "answers": [
             { "text": "I gatti sono animali frettolosi", "correct": false },
             { "text": "L'amore materno a volte è cieco", "correct": false },
@@ -18,7 +18,7 @@
         ]
     },
     {
-        "question": "Proverbio Siciliano: 'Cu mancia fa muddichi.' Cosa significa?",
+        "question": "Proverbio Siciliano: \n'Cu mancia fa muddichi.' \nCosa significa?",
         "answers": [
             { "text": "Chi mangia tanto ingrassa", "correct": false },
             { "text": "Solo chi agisce può commettere errori", "correct": true },
@@ -27,7 +27,7 @@
         ]
     },
     {
-        "question": "Proverbio Romano: 'Fidete de li cani e no de li cristiani.' Cosa significa?",
+        "question": "Proverbio Romano: \n'Fidete de li cani e no de li cristiani.' \nCosa significa?",
         "answers": [
             { "text": "Gli animali sono meglio delle persone", "correct": false },
             { "text": "I cani sono i migliori amici dell'uomo", "correct": false },
@@ -36,7 +36,7 @@
         ]
     },
     {
-        "question": "Proverbio Milanese: 'Ofelée, fa el tò mestée.' Cosa significa?",
+        "question": "Proverbio Milanese: \n'Ofelée, fa el tò mestée.' \nCosa significa?",
         "answers": [
             { "text": "Ognuno deve pensare ai propri affari e non a quelli degli altri", "correct": true },
             { "text": "Il pasticcere è un mestiere difficile", "correct": false },
@@ -45,7 +45,7 @@
         ]
     },
     {
-        "question": "Proverbio Pugliese: 'Ce s'àcchija, s'àcchija.' Cosa significa?",
+        "question": "Proverbio Pugliese: \n'Ce s'àcchija, s'àcchija.' \nCosa significa?",
         "answers": [
             { "text": "Chi cerca trova", "correct": false },
             { "text": "Bisogna accontentarsi di ciò che si trova", "correct": true },
@@ -54,7 +54,7 @@
         ]
     },
     {
-        "question": "Proverbio Toscano: 'L'acqua cheta rovina i ponti.' Cosa significa?",
+        "question": "Proverbio Toscano: \n'L'acqua cheta rovina i ponti.' \nCosa significa?",
         "answers": [
             { "text": "Le persone silenziose e apparentemente innocue possono essere le più pericolose", "correct": true },
             { "text": "Le inondazioni sono pericolose", "correct": false },
@@ -63,7 +63,7 @@
         ]
     },
     {
-        "question": "Proverbio Genovese: 'Chi vêu navegâ, bezêugna saveî nuâ.' Cosa significa?",
+        "question": "Proverbio Genovese: \n'Chi vêu navegâ, bezêugna saveî nuâ.' \nCosa significa?",
         "answers": [
             { "text": "Per viaggiare in mare bisogna essere ricchi", "correct": false },
             { "text": "Chi vuole intraprendere un'attività, deve conoscerne i rischi e i fondamenti", "correct": true },
@@ -72,7 +72,7 @@
         ]
     },
     {
-        "question": "Proverbio Sardo: 'Chie furat pagu, furat meda.' Cosa significa?",
+        "question": "Proverbio Sardo: \n'Chie furat pagu, furat meda.' \nCosa significa?",
         "answers": [
             { "text": "Chi ruba poco non è un vero ladro", "correct": false },
             { "text": "Bisogna punire severamente i ladri", "correct": false },
@@ -81,7 +81,7 @@
         ]
     },
     {
-        "question": "Proverbio Piemontese: 'A val pì la pratica che la gramatica.' Cosa significa?",
+        "question": "Proverbio Piemontese: \n'A val pì la pratica che la gramatica.' \nCosa significa?",
         "answers": [
             { "text": "L'esperienza pratica è più importante della teoria", "correct": true },
             { "text": "La grammatica non è importante", "correct": false },
