@@ -1,0 +1,21 @@
+# File di script per l'upload automatico
+upload.bat
+
+# File temporanei di Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# File di log
+*.log
+
+# File temporanei di editor
+.vscode/settings.json
+*~
+*.swp
+*.swo
+
+# File di sistema macOS (nel caso qualcuno usi Mac)
+.DS_Store
+.AppleDouble
+.LSOverride
