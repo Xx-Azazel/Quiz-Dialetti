@@ -88,5 +88,185 @@
             { "text": "Per imparare bisogna studiare molto", "correct": false },
             { "text": "Le persone pratiche non conoscono la grammatica", "correct": false }
         ]
+    },
+    {
+        "question": "Proverbio Calabrese: \n'Chi nun sapi navigari, nun si metta 'n mari.' \nCosa significa?",
+        "answers": [
+            { "text": "Non bisogna intraprendere attività per cui non si è preparati", "correct": true },
+            { "text": "Il mare è pericoloso per tutti", "correct": false },
+            { "text": "Solo i marinai possono viaggiare", "correct": false },
+            { "text": "Bisogna imparare a nuotare prima di navigare", "correct": false }
+        ]
+    },
+    {
+        "question": "Proverbio Emiliano: \n'Al vin a cla bôn, al fa cantèr anch i cavròun.' \nCosa significa?",
+        "answers": [
+            { "text": "La musica rende felici tutti", "correct": false },
+            { "text": "Il buon vino mette allegria anche ai più timidi", "correct": true },
+            { "text": "Gli animali amano la musica", "correct": false },
+            { "text": "Bisogna bere con moderazione", "correct": false }
+        ]
+    },
+    {
+        "question": "Proverbio Friulano: \n'Chest al è un alt pâr di manicis.' \nCosa significa?",
+        "answers": [
+            { "text": "I guanti sono importanti d'inverno", "correct": false },
+            { "text": "Questa è una questione completamente diversa", "correct": true },
+            { "text": "Bisogna sempre avere le mani pulite", "correct": false },
+            { "text": "Le cose vanno fatte in coppia", "correct": false }
+        ]
+    },
+    {
+        "question": "Proverbio Ligure: \n'Chi o va a-o müo, o perde o pòsto e a fäina.' \nCosa significa?",
+        "answers": [
+            { "text": "Chi va al mulino deve portare il grano", "correct": false },
+            { "text": "Chi si allontana dal lavoro rischia di perdere opportunità", "correct": true },
+            { "text": "I mugnai sono persone importanti", "correct": false },
+            { "text": "Bisogna sempre macinare il grano", "correct": false }
+        ]
+    },
+    {
+        "question": "Proverbio Marchigiano: \n'Chi magna senza fame, more senza male.' \nCosa significa?",
+        "answers": [
+            { "text": "Bisogna mangiare solo quando si ha fame", "correct": false },
+            { "text": "Chi vive una vita troppo facile non apprezza veramente nulla", "correct": true },
+            { "text": "Il cibo fa bene alla salute", "correct": false },
+            { "text": "La morte arriva senza preavviso", "correct": false }
+        ]
+    },
+    {
+        "question": "Proverbio Abruzzese: \n'Megghje esse cape de surece che coda de lione.' \nCosa significa?",
+        "answers": [
+            { "text": "I topi sono più furbi dei leoni", "correct": false },
+            { "text": "È meglio essere primi in un gruppo modesto che ultimi tra i grandi", "correct": true },
+            { "text": "Gli animali piccoli sono più agili", "correct": false },
+            { "text": "Bisogna scegliere sempre il gruppo più forte", "correct": false }
+        ]
+    },
+    {
+        "question": "Proverbio Umbro: \n'Chi va a Roma perde la poltrona.' \nCosa significa?",
+        "answers": [
+            { "text": "Roma è una città scomoda", "correct": false },
+            { "text": "Chi si allontana rischia di perdere il proprio posto", "correct": true },
+            { "text": "A Roma non ci sono sedie", "correct": false },
+            { "text": "I viaggi sono sempre rischiosi", "correct": false }
+        ]
+    },
+    {
+        "question": "Proverbio Laziale: \n'Morto un papa se ne fa n'antro.' \nCosa significa?",
+        "answers": [
+            { "text": "Il Vaticano funziona bene", "correct": false },
+            { "text": "Nessuno è insostituibile", "correct": true },
+            { "text": "I papi vivono a lungo", "correct": false },
+            { "text": "La religione è eterna", "correct": false }
+        ]
+    },
+    {
+        "question": "Proverbio Molisano: \n'Quanne nasce na cosa, more n'ata.' \nCosa significa?",
+        "answers": [
+            { "text": "La vita è un ciclo continuo di nascita e morte", "correct": true },
+            { "text": "Bisogna sempre fare spazio al nuovo", "correct": false },
+            { "text": "Le cose belle durano poco", "correct": false },
+            { "text": "Ogni generazione sostituisce la precedente", "correct": false }
+        ]
+    },
+    {
+        "question": "Proverbio Lucano: \n'A chi nun vo' faticare, 'o lietto jè troppo stretto.' \nCosa significa?",
+        "answers": [
+            { "text": "I letti piccoli sono scomodi", "correct": false },
+            { "text": "Chi non vuole lavorare trova sempre scuse", "correct": true },
+            { "text": "Bisogna dormire bene per lavorare", "correct": false },
+            { "text": "La pigrizia fa male alla salute", "correct": false }
+        ]
+    },
+    {
+        "question": "Proverbio Abruzzese: \n'L'acqua va sempe vers'abbasse.' \nCosa significa?",
+        "answers": [
+            { "text": "L'acqua scende sempre verso il basso per gravità", "correct": false },
+            { "text": "Le cose tendono sempre a peggiorare se lasciate a se stesse", "correct": true },
+            { "text": "Bisogna costruire le case in alto", "correct": false },
+            { "text": "L'acqua è un elemento fondamentale", "correct": false }
+        ]
+    },
+    {
+        "question": "Proverbio Bergamasco: \n'Mèi töss che mal cumpagnì.' \nCosa significa?",
+        "answers": [
+            { "text": "La tosse è una malattia grave", "correct": false },
+            { "text": "È meglio stare soli che in cattiva compagnia", "correct": true },
+            { "text": "Bisogna curarsi quando si è malati", "correct": false },
+            { "text": "La solitudine fa bene alla salute", "correct": false }
+        ]
+    },
+    {
+        "question": "Proverbio Bolognese: \n'Al temp al cura tött mal.' \nCosa significa?",
+        "answers": [
+            { "text": "I medici hanno bisogno di tempo", "correct": false },
+            { "text": "Il tempo guarisce tutti i mali", "correct": true },
+            { "text": "Le malattie durano sempre tanto", "correct": false },
+            { "text": "Bisogna avere pazienza con i dottori", "correct": false }
+        ]
+    },
+    {
+        "question": "Proverbio Reggiano: \n'Chi l'è sòura l'acqua, l'è sòura la barca.' \nCosa significa?",
+        "answers": [
+            { "text": "Bisogna saper nuotare per navigare", "correct": false },
+            { "text": "Chi ha il controllo della situazione ha tutto il potere", "correct": true },
+            { "text": "Le barche galleggiano sull'acqua", "correct": false },
+            { "text": "Il mare è più importante delle navi", "correct": false }
+        ]
+    },
+    {
+        "question": "Proverbio Bresciano: \n'Quan che 'l gal canta sö 'l letamér, cambia 'l temp o 'l morirà.' \nCosa significa?",
+        "answers": [
+            { "text": "I galli prevedono il tempo", "correct": false },
+            { "text": "Quando le cose vanno contro natura, qualcosa cambierà", "correct": true },
+            { "text": "Gli animali hanno comportamenti strani", "correct": false },
+            { "text": "Il letame è importante per l'agricoltura", "correct": false }
+        ]
+    },
+    {
+        "question": "Proverbio Vicentino: \n'No xe oro tuto quel che luze.' \nCosa significa?",
+        "answers": [
+            { "text": "L'oro è un metallo prezioso", "correct": false },
+            { "text": "Non tutto ciò che sembra prezioso lo è realmente", "correct": true },
+            { "text": "Le cose brillanti sono belle", "correct": false },
+            { "text": "Bisogna pulire sempre i metalli", "correct": false }
+        ]
+    },
+    {
+        "question": "Proverbio Trevigiano: \n'Chi ga tempo, no speta tempo.' \nCosa significa?",
+        "answers": [
+            { "text": "Il tempo passa velocemente", "correct": false },
+            { "text": "Chi ha fretta non aspetta nessuno", "correct": true },
+            { "text": "Bisogna avere pazienza nella vita", "correct": false },
+            { "text": "Il tempo è la cosa più preziosa", "correct": false }
+        ]
+    },
+    {
+        "question": "Proverbio Mantovano: \n'L'è mèi un usèl in gabbia che sent in un bosc.' \nCosa significa?",
+        "answers": [
+            { "text": "Gli uccelli stanno meglio in gabbia", "correct": false },
+            { "text": "È meglio poco ma sicuro che molto ma incerto", "correct": true },
+            { "text": "I boschi sono pericolosi per gli animali", "correct": false },
+            { "text": "La libertà è sopravvalutata", "correct": false }
+        ]
+    },
+    {
+        "question": "Proverbio Parmigiano: \n'Chi va pian va san e va lontàn.' \nCosa significa?",
+        "answers": [
+            { "text": "Camminare lentamente fa bene alla salute", "correct": false },
+            { "text": "Chi procede con calma e costanza raggiunge meglio i suoi obiettivi", "correct": true },
+            { "text": "Le persone anziane camminano piano", "correct": false },
+            { "text": "I viaggi lunghi sono faticosi", "correct": false }
+        ]
+    },
+    {
+        "question": "Proverbio Cremonese: \n'A San Martén, ogni must l'è vén.' \nCosa significa?",
+        "answers": [
+            { "text": "San Martino è il santo del vino", "correct": false },
+            { "text": "A novembre il mosto diventa vino", "correct": true },
+            { "text": "I santi proteggono i contadini", "correct": false },
+            { "text": "In autunno si beve di più", "correct": false }
+        ]
     }
 ]

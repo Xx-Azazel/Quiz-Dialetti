@@ -33,7 +33,35 @@
         <div id="result-screen" class="hidden">
             <h2>Quiz Terminato</h2>
             <p>Il tuo punteggio finale è: <span id="score">0</span></p>
-            <button id="restart-button">Riprova il Quiz</button>
+            
+            <div id="answers-summary" class="answers-summary">
+                <!-- Il riepilogo delle risposte verrà inserito qui da JavaScript -->
+            </div>
+            
+            <div class="result-buttons">
+                <button id="restart-button">Rigioca</button>
+                <button id="review-button">Revisione</button>
+            </div>
+        </div>
+        
+        <div id="review-screen" class="hidden">
+            <h2>Revisione Quiz</h2>
+            <div class="review-progress">
+                <span id="review-counter">1 di 10</span>
+            </div>
+            
+            <div id="review-question-container">
+                <h3 id="review-question">Domanda</h3>
+                <div id="review-answers" class="btn-grid">
+                    <!-- Le risposte della revisione verranno generate qui -->
+                </div>
+            </div>
+            
+            <div class="review-controls">
+                <button id="review-prev" class="review-btn">← Precedente</button>
+                <button id="review-next" class="review-btn">Successiva →</button>
+                <button id="review-exit" class="review-btn exit-btn">Torna ai Risultati</button>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>
