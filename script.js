@@ -95,7 +95,7 @@ function showQuestion(question) {
     questionElement.innerText = question.question;
     question.answers.forEach(answer => {
         const button = document.createElement('button');
-        button.innerText = answer.text;
+        button.innerHTML = `<span>${answer.text}</span>`; // Wrapped in span for styling
         button.classList.add('btn');
         if (answer.correct) {
             button.dataset.correct = answer.correct;
@@ -108,20 +108,27 @@ function showQuestion(question) {
 function resetState() {
     clearStatusClass(document.body);
     nextButton.classList.add('hidden');
+    
+    // Pulisce gli effetti LED e tutti i pulsanti precedenti
     while (answerButtonsElement.firstChild) {
-        answerButtonsElement.removeChild(answerButtonsElement.firstChild);
+        const button = answerButtonsElement.firstChild;
+        button.classList.remove('selected-answer', 'correct', 'wrong');
+        answerButtonsElement.removeChild(button);
     }
 }
 
 function selectAnswer(e) {
-    const selectedButton = e.target;
+    const selectedButton = e.target.closest('button'); // Usa closest per gestire il click su span
     const correct = selectedButton.dataset.correct === 'true';
+    
+    // Aggiungi effetto LED alla risposta selezionata
+    selectedButton.classList.add('selected-answer');
     
     // Salva la risposta dell'utente con tutti i dettagli della domanda
     userAnswers.push({
         question: selectedQuestions[currentQuestionIndex].question,
         answers: selectedQuestions[currentQuestionIndex].answers,
-        userAnswer: selectedButton.innerText,
+        userAnswer: selectedButton.querySelector('span').innerText, // Prendi il testo dallo span
         userAnswerIndex: Array.from(answerButtonsElement.children).indexOf(selectedButton),
         correctAnswer: selectedQuestions[currentQuestionIndex].answers.find(ans => ans.correct).text,
         isCorrect: correct
@@ -210,13 +217,14 @@ function showReviewQuestion() {
     // Crea i pulsanti delle risposte
     currentAnswer.answers.forEach((answer, index) => {
         const button = document.createElement('button');
-        button.innerText = answer.text;
+        button.innerHTML = `<span>${answer.text}</span>`; // Wrapped in span for styling
         button.classList.add('btn');
         button.disabled = true; // Non cliccabili in modalità revisione
         
         // Evidenzia la risposta dell'utente e quella corretta
         if (index === currentAnswer.userAnswerIndex) {
             // Risposta selezionata dall'utente
+            button.classList.add('user-selected'); // Classe per l'effetto LED
             if (currentAnswer.isCorrect) {
                 button.classList.add('correct');
             } else {
