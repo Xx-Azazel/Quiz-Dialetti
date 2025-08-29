@@ -112,7 +112,9 @@ function resetState() {
     // Pulisce gli effetti LED e tutti i pulsanti precedenti
     while (answerButtonsElement.firstChild) {
         const button = answerButtonsElement.firstChild;
-        button.classList.remove('selected-answer', 'correct', 'wrong');
+        if (button && button.classList) {
+            button.classList.remove('selected-answer', 'correct', 'wrong');
+        }
         answerButtonsElement.removeChild(button);
     }
 }
@@ -224,7 +226,7 @@ function showReviewQuestion() {
         // Evidenzia la risposta dell'utente e quella corretta
         if (index === currentAnswer.userAnswerIndex) {
             // Risposta selezionata dall'utente
-            button.classList.add('user-selected'); // Classe per l'effetto LED
+            button.classList.add('user-selected');
             if (currentAnswer.isCorrect) {
                 button.classList.add('correct');
             } else {

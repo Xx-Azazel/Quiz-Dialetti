@@ -107,7 +107,7 @@ body {
     text-align: center;
     border: 3px solid var(--accent-color);
     position: relative;
-    backdrop-filter: blur(10px);
+    /* backdrop-filter rimosso per evitare sfocatura */
 }
 
 .container::before {
@@ -171,7 +171,7 @@ body {
 }
 
 #question::before {
-    content: """;
+    content: "";
     position: absolute;
     top: -10px;
     left: 10px;
@@ -182,7 +182,7 @@ body {
 }
 
 #question::after {
-    content: """;
+    content: "";
     position: absolute;
     bottom: -20px;
     right: 20px;
@@ -417,8 +417,69 @@ body {
 
 .btn:disabled {
     cursor: not-allowed;
-    opacity: 0.9;
+    opacity: 1; /* Cambiato da 0.6 a 1 */
     transform: none;
+}
+
+/* Tutti i bottoni nel quiz devono essere completamente opachi */
+.btn {
+    opacity: 1 !important;
+}
+
+/* OVERRIDE COMPLETO per la modalità review */
+#review-screen .btn {
+    opacity: 1 !important;
+    background: #F5F5F5 !important;
+    color: #333 !important;
+    border: 2px solid #DDD !important;
+    font-weight: normal !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;
+}
+
+/* Risposta selezionata dall'utente - solo ingrandimento */
+#review-screen .btn.user-selected {
+    opacity: 1 !important;
+    transform: scale(1.1) !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
+    font-weight: bold !important;
+}
+
+/* Risposta corretta - VERDE */
+#review-screen .btn.correct {
+    opacity: 1 !important;
+    background: #90EE90 !important;
+    color: #006400 !important;
+    border: 3px solid #32CD32 !important;
+    font-weight: bold !important;
+}
+
+/* Risposta sbagliata generica (non selezionata dall'utente) - MARRONE */
+#review-screen .btn.wrong:not(.user-selected) {
+    opacity: 1 !important;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--header-color) 50%, var(--primary-color) 100%) !important;
+    color: #FFFFFF !important;
+    border: 3px solid var(--primary-color) !important;
+    font-weight: bold !important;
+}
+
+/* Se l'utente ha scelto la risposta corretta - VERDE + ingrandimento */
+#review-screen .btn.user-selected.correct {
+    background: #90EE90 !important;
+    color: #006400 !important;
+    border: 3px solid #32CD32 !important;
+    transform: scale(1.1) !important;
+    box-shadow: 0 8px 20px rgba(34, 139, 34, 0.5) !important;
+}
+
+/* Se l'utente ha scelto la risposta sbagliata - ROSSO + ingrandimento */
+#review-screen .btn.user-selected.wrong,
+#review-answers .btn.user-selected.wrong {
+    background: #FF4444 !important;
+    color: #FFFFFF !important;
+    border: 3px solid #DC143C !important;
+    transform: scale(1.1) !important;
+    box-shadow: 0 8px 20px rgba(220, 20, 60, 0.8) !important;
+    font-weight: bold !important;
 }
 
 .controls {
@@ -573,22 +634,28 @@ body {
 }
 
 .user-answer.correct {
-    background-color: rgba(34, 139, 34, 0.1);
-    border-left: 3px solid var(--correct-color);
-    color: var(--correct-color);
+    background: #90EE90 !important;
+    border: 2px solid #32CD32 !important;
+    color: #006400 !important;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(34, 139, 34, 0.3);
 }
 
 .user-answer.wrong {
-    background-color: rgba(101, 67, 33, 0.1);
-    border-left: 3px solid var(--primary-color);
-    color: var(--primary-color);
+    background: #FF4444 !important;
+    border: 2px solid #DC143C !important;
+    color: #FFFFFF !important;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(220, 20, 60, 0.3);
 }
 
 .correct-answer {
-    background-color: rgba(34, 139, 34, 0.1);
-    border-left: 3px solid var(--correct-color);
-    color: var(--correct-color);
+    background: #90EE90 !important;
+    border: 2px solid #32CD32 !important;
+    color: #006400 !important;
     font-style: italic;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(34, 139, 34, 0.2);
 }
 
 /* Stili per i pulsanti dei risultati */
@@ -837,48 +904,10 @@ body {
     position: relative;
 }
 
-/* Effetto LED luminoso per la risposta selezionata dall'utente */
+/* Effetto semplice per la risposta selezionata dell'utente */
 #review-answers .btn.user-selected {
-    position: relative;
-    overflow: visible;
-    animation: ledPulse 2s infinite;
-}
-
-#review-answers .btn.user-selected::before {
-    content: "";
-    position: absolute;
-    top: -4px;
-    left: -4px;
-    right: -4px;
-    bottom: -4px;
-    border-radius: 14px;
-    background: linear-gradient(45deg, 
-        #FF6B6B, #4ECDC4, #45B7D1, #96CEB4, 
-        #FECA57, #FF9FF3, #54A0FF, #5F27CD,
-        #FF6B6B, #4ECDC4, #45B7D1, #96CEB4);
-    background-size: 400% 400%;
-    animation: ledBorder 3s linear infinite, ledRotate 8s linear infinite;
-    z-index: -1;
-    filter: blur(1px);
-}
-
-#review-answers .btn.user-selected::after {
-    content: "";
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    border-radius: 12px;
-    background: linear-gradient(45deg, 
-        rgba(255, 107, 107, 0.8), rgba(78, 205, 196, 0.8), 
-        rgba(69, 183, 209, 0.8), rgba(150, 206, 180, 0.8),
-        rgba(254, 202, 87, 0.8), rgba(255, 159, 243, 0.8),
-        rgba(84, 160, 255, 0.8), rgba(95, 39, 205, 0.8));
-    background-size: 400% 400%;
-    animation: ledBorder 3s linear infinite reverse;
-    z-index: -1;
-    opacity: 0.7;
+    border: 3px solid var(--gold) !important;
+    box-shadow: 0 0 15px rgba(218, 165, 32, 0.6) !important;
 }
 
 /* Animazioni per l'effetto LED */
@@ -938,45 +967,15 @@ body {
     box-shadow: 0 2px 8px rgba(255, 107, 107, 0.4);
 }
 
-/* Effetto LED anche durante il quiz normale per la risposta selezionata */
+/* Effetto semplice per la risposta selezionata - solo ingrandimento */
 .btn.selected-answer {
-    animation: selectedPulse 1.5s ease-in-out 3;
-    position: relative;
-    overflow: visible;
+    transform: scale(1.1) !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
+    /* Nessun cambio di colore, solo ingrandimento */
 }
 
-.btn.selected-answer::before {
-    content: "";
-    position: absolute;
-    top: -3px;
-    left: -3px;
-    right: -3px;
-    bottom: -3px;
-    border-radius: 13px;
-    background: linear-gradient(45deg, 
-        var(--gold), #FFD700, var(--gold), #B8860B);
-    background-size: 300% 300%;
-    animation: quickLedBorder 1s linear 3;
-    z-index: -1;
-    opacity: 0.8;
-}
+/* Animazioni rimosse per evitare sfocatura */
 
-@keyframes selectedPulse {
-    0%, 100% { 
-        box-shadow: 
-            0 6px 20px var(--shadow-medium),
-            0 0 15px rgba(218, 165, 32, 0.3);
-    }
-    50% { 
-        box-shadow: 
-            0 8px 25px var(--shadow-heavy),
-            0 0 25px rgba(218, 165, 32, 0.6),
-            0 0 35px rgba(218, 165, 32, 0.3);
-    }
-}
+/* RIMOSSO - conflittava con gli stili della review */
 
-@keyframes quickLedBorder {
-    0% { background-position: 0% 0%; opacity: 0.8; }
-    50% { background-position: 100% 100%; opacity: 1; }
-    100% { background-position: 200% 200%; opacity: 0.8; }
-}
+
