@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 """
-Convertitore TXT → JSON per Quiz Proverbi Dialettali
-Legge il file ELENCO_DOMANDE_QUIZ_V2.txt e genera questions.json
+Convertitore TXT → JSON ROBUSTO per Quiz Proverbi Dialettali
+Ignora la numerazione e processa tutte le domande in sequenza
 """
 
 import json
 import re
 import sys
 
-def parse_txt_to_json(txt_file, json_file):
-    """Converte il file TXT in formato JSON"""
+def parse_txt_to_json_robust(txt_file, json_file):
+    """Converte il file TXT in formato JSON ignorando la numerazione"""
     try:
         with open(txt_file, 'r', encoding='utf-8') as f:
             content = f.read()
@@ -17,23 +17,29 @@ def parse_txt_to_json(txt_file, json_file):
         # Dividi le domande usando i separatori ---
         sections = content.split('---')
         questions = []
+        question_number = 1
         
         for section in sections:
             section = section.strip()
             
-            # Salta sezioni vuote, istruzioni o che contengono solo "?"
-            if not section or 'FORMATO PER' in section or 'ISTRUZIONI:' in section or section == '?':
+            # Salta sezioni vuote, istruzioni o intestazioni
+            if (not section or 
+                'QUIZ PROVERBI' in section or 
+                'LEGENDA:' in section or 
+                'FORMATO PER' in section or 
+                'ISTRUZIONI:' in section or
+                len(section) < 50):
                 continue
             
-            # Pattern per estrarre la domanda
-            question_match = re.search(r'(\d+)\.\s*Proverbio\s+([^:]+):\s*\n\'([^\']+)\'\s*\nCosa significa\?', section)
+            # Pattern più flessibile: trova qualsiasi "X. Proverbio Regione:"
+            question_match = re.search(r'\d+\.\s*Proverbio\s+([^:]+):\s*\n\'([^\']+)\'\s*\nCosa significa\?', section)
             
             if not question_match:
+                print(f"⚠️  Sezione saltata: formato non riconosciuto")
                 continue
             
-            number = question_match.group(1)
-            region = question_match.group(2).strip()
-            proverb = question_match.group(3).strip()
+            region = question_match.group(1).strip()
+            proverb = question_match.group(2).strip()
             
             # Costruisci la domanda completa
             question_text = f"Proverbio {region}: \n'{proverb}' \nCosa significa?"
@@ -45,22 +51,23 @@ def parse_txt_to_json(txt_file, json_file):
             
             for letter, text, is_correct in answer_matches:
                 answer_text = text.strip()
-                # Accetta anche "?" come risposta valida (placeholder)
-                if answer_text and (answer_text != '' and len(answer_text) > 0):
+                # Accetta qualsiasi testo, inclusi i placeholder "?"
+                if answer_text:
                     answers.append({
                         "text": answer_text,
                         "correct": bool(is_correct.strip())
                     })
             
-            # Aggiungi se ci sono esattamente 4 risposte (inclusi i placeholder "?")
+            # Aggiungi se ci sono esattamente 4 risposte
             if len(answers) == 4:
                 questions.append({
                     "question": question_text,
                     "answers": answers
                 })
-                print(f"✅ Domanda {number} aggiunta: {region}")
+                print(f"✅ Domanda {question_number} aggiunta: {region}")
+                question_number += 1
             else:
-                print(f"⚠️  Domanda {number} saltata: trovate {len(answers)} risposte invece di 4")
+                print(f"⚠️  Domanda saltata ({region}): trovate {len(answers)} risposte invece di 4")
         
         # Salva il JSON
         with open(json_file, 'w', encoding='utf-8') as f:
@@ -74,18 +81,20 @@ def parse_txt_to_json(txt_file, json_file):
         
     except Exception as e:
         print(f"❌ Errore durante la conversione: {e}")
+        import traceback
+        traceback.print_exc()
         return 0
 
 def main():
     txt_file = "ELENCO_DOMANDE_QUIZ_V2.txt"
     json_file = "questions.json"
     
-    print("🔄 Conversione TXT → JSON")
+    print("🔄 Conversione TXT → JSON (VERSIONE ROBUSTA)")
     print(f"📖 Leggo: {txt_file}")
     print(f"💾 Scrivo: {json_file}")
     print("-" * 50)
     
-    count = parse_txt_to_json(txt_file, json_file)
+    count = parse_txt_to_json_robust(txt_file, json_file)
     
     if count > 0:
         print(f"\n✅ Successo! {count} domande convertite.")

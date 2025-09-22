@@ -1,0 +1,1052 @@
+[
+    {
+        "question": "Proverbio Veneto: \n'Chi no ga testa, ga gambe.' \nCosa significa?",
+        "answers": [
+            {
+                "text": "Chi è testardo va lontano",
+                "correct": false
+            },
+            {
+                "text": "Chi non usa il cervello deve faticare di più fisicamente",
+                "correct": true
+            },
+            {
+                "text": "Le persone intelligenti sono pigre",
+                "correct": false
+            },
+            {
+                "text": "Bisogna essere forti per avere successo",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Napoletano: \n'A' \nCosa significa?",
+        "answers": [
+            {
+                "text": "I gatti sono animali frettolosi",
+                "correct": false
+            },
+            {
+                "text": "L'amore materno a volte è cieco",
+                "correct": false
+            },
+            {
+                "text": "La fretta porta a fare le cose male",
+                "correct": true
+            },
+            {
+                "text": "Bisogna aiutare chi è in difficoltà",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Siciliano: \n'Cu mancia fa muddichi.' \nCosa significa?",
+        "answers": [
+            {
+                "text": "Chi mangia tanto ingrassa",
+                "correct": false
+            },
+            {
+                "text": "Solo chi agisce può commettere errori",
+                "correct": true
+            },
+            {
+                "text": "Non si deve sprecare il cibo",
+                "correct": false
+            },
+            {
+                "text": "Chi è ricco lascia le briciole ai poveri",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Romano: \n'Fidete de li cani e no de li cristiani.' \nCosa significa?",
+        "answers": [
+            {
+                "text": "Gli animali sono meglio delle persone",
+                "correct": false
+            },
+            {
+                "text": "I cani sono i migliori amici dell'uomo",
+                "correct": false
+            },
+            {
+                "text": "A volte gli animali sono più affidabili degli esseri umani",
+                "correct": true
+            },
+            {
+                "text": "Non bisogna fidarsi di nessuno",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Milanese: \n'Ofelée, fa el tò mestée.' \nCosa significa?",
+        "answers": [
+            {
+                "text": "Ognuno deve pensare ai propri affari e non a quelli degli altri",
+                "correct": true
+            },
+            {
+                "text": "Il pasticcere è un mestiere difficile",
+                "correct": false
+            },
+            {
+                "text": "Bisogna sempre fare dolci per gli amici",
+                "correct": false
+            },
+            {
+                "text": "L'apparenza inganna",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Pugliese: \n'Ce s' \nCosa significa?",
+        "answers": [
+            {
+                "text": "Chi cerca trova",
+                "correct": false
+            },
+            {
+                "text": "Bisogna accontentarsi di ciò che si trova",
+                "correct": true
+            },
+            {
+                "text": "La fortuna aiuta gli audaci",
+                "correct": false
+            },
+            {
+                "text": "Tutto ha un prezzo",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Toscano: \n'L' \nCosa significa?",
+        "answers": [
+            {
+                "text": "Le persone silenziose e apparentemente innocue possono essere le più pericolose",
+                "correct": true
+            },
+            {
+                "text": "Le inondazioni sono pericolose",
+                "correct": false
+            },
+            {
+                "text": "Il silenzio è d'oro",
+                "correct": false
+            },
+            {
+                "text": "L'acqua è un elemento potente",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Genovese: \n'Chi vêu navegâ, bezêugna saveî nuâ.' \nCosa significa?",
+        "answers": [
+            {
+                "text": "Per viaggiare in mare bisogna essere ricchi",
+                "correct": false
+            },
+            {
+                "text": "Chi vuole intraprendere un'attività, deve conoscerne i rischi e i fondamenti",
+                "correct": true
+            },
+            {
+                "text": "I marinai devono saper nuotare",
+                "correct": false
+            },
+            {
+                "text": "Non si può avere tutto dalla vita",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Sardo: \n'Chie furat pagu, furat meda.' \nCosa significa?",
+        "answers": [
+            {
+                "text": "Chi ruba poco non è un vero ladro",
+                "correct": false
+            },
+            {
+                "text": "Bisogna punire severamente i ladri",
+                "correct": false
+            },
+            {
+                "text": "Chi commette una piccola disonestà è capace di commetterne anche di più grandi",
+                "correct": true
+            },
+            {
+                "text": "La ricchezza si accumula a poco a poco",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Piemontese: \n'A val pì la pratica che la gramatica.' \nCosa significa?",
+        "answers": [
+            {
+                "text": "L'esperienza pratica è più importante della teoria",
+                "correct": true
+            },
+            {
+                "text": "La grammatica non è importante",
+                "correct": false
+            },
+            {
+                "text": "Per imparare bisogna studiare molto",
+                "correct": false
+            },
+            {
+                "text": "Le persone pratiche non conoscono la grammatica",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Calabrese: \n'Chi nun sapi navigari, nun si metta' \nCosa significa?",
+        "answers": [
+            {
+                "text": "Non bisogna intraprendere attività per cui non si è preparati",
+                "correct": true
+            },
+            {
+                "text": "Il mare è pericoloso per tutti",
+                "correct": false
+            },
+            {
+                "text": "Solo i marinai possono viaggiare",
+                "correct": false
+            },
+            {
+                "text": "Bisogna imparare a nuotare prima di navigare",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Emiliano: \n'Al vin a cla bôn, al fa cantèr anch i cavròun.' \nCosa significa?",
+        "answers": [
+            {
+                "text": "La musica rende felici tutti",
+                "correct": false
+            },
+            {
+                "text": "Il buon vino mette allegria anche ai più timidi",
+                "correct": true
+            },
+            {
+                "text": "Gli animali amano la musica",
+                "correct": false
+            },
+            {
+                "text": "Bisogna bere con moderazione",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Friulano: \n'Chest al è un alt pâr di manicis.' \nCosa significa?",
+        "answers": [
+            {
+                "text": "I guanti sono importanti d'inverno",
+                "correct": false
+            },
+            {
+                "text": "Questa è una questione completamente diversa",
+                "correct": true
+            },
+            {
+                "text": "Bisogna sempre avere le mani pulite",
+                "correct": false
+            },
+            {
+                "text": "Le cose vanno fatte in coppia",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Ligure: \n'Chi o va a-o müo, o perde o pòsto e a fäina.' \nCosa significa?",
+        "answers": [
+            {
+                "text": "Chi va al mulino deve portare il grano",
+                "correct": false
+            },
+            {
+                "text": "Chi si allontana dal lavoro rischia di perdere opportunità",
+                "correct": true
+            },
+            {
+                "text": "I mugnai sono persone importanti",
+                "correct": false
+            },
+            {
+                "text": "Bisogna sempre macinare il grano",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Marchigiano: \n'Chi magna senza fame, more senza male.' \nCosa significa?",
+        "answers": [
+            {
+                "text": "Bisogna mangiare solo quando si ha fame",
+                "correct": false
+            },
+            {
+                "text": "Chi vive una vita troppo facile non apprezza veramente nulla",
+                "correct": true
+            },
+            {
+                "text": "Il cibo fa bene alla salute",
+                "correct": false
+            },
+            {
+                "text": "La morte arriva senza preavviso",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Abruzzese: \n'Megghje esse cape de surece che coda de lione.' \nCosa significa?",
+        "answers": [
+            {
+                "text": "I topi sono più furbi dei leoni",
+                "correct": false
+            },
+            {
+                "text": "È meglio essere primi in un gruppo modesto che ultimi tra i grandi",
+                "correct": true
+            },
+            {
+                "text": "Gli animali piccoli sono più agili",
+                "correct": false
+            },
+            {
+                "text": "Bisogna scegliere sempre il gruppo più forte",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Umbro: \n'Chi va a Roma perde la poltrona.' \nCosa significa?",
+        "answers": [
+            {
+                "text": "Roma è una città scomoda",
+                "correct": false
+            },
+            {
+                "text": "Chi si allontana rischia di perdere il proprio posto",
+                "correct": true
+            },
+            {
+                "text": "A Roma non ci sono sedie",
+                "correct": false
+            },
+            {
+                "text": "I viaggi sono sempre rischiosi",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Laziale: \n'Morto un papa se ne fa n' \nCosa significa?",
+        "answers": [
+            {
+                "text": "Il Vaticano funziona bene",
+                "correct": false
+            },
+            {
+                "text": "Nessuno è insostituibile",
+                "correct": true
+            },
+            {
+                "text": "I papi vivono a lungo",
+                "correct": false
+            },
+            {
+                "text": "La religione è eterna",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Molisano: \n'Quanne nasce na cosa, more n' \nCosa significa?",
+        "answers": [
+            {
+                "text": "La vita è un ciclo continuo di nascita e morte",
+                "correct": true
+            },
+            {
+                "text": "Bisogna sempre fare spazio al nuovo",
+                "correct": false
+            },
+            {
+                "text": "Le cose belle durano poco",
+                "correct": false
+            },
+            {
+                "text": "Ogni generazione sostituisce la precedente",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Lucano: \n'A chi nun vo' \nCosa significa?",
+        "answers": [
+            {
+                "text": "I letti piccoli sono scomodi",
+                "correct": false
+            },
+            {
+                "text": "Chi non vuole lavorare trova sempre scuse",
+                "correct": true
+            },
+            {
+                "text": "Bisogna dormire bene per lavorare",
+                "correct": false
+            },
+            {
+                "text": "La pigrizia fa male alla salute",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Abruzzese: \n'L' \nCosa significa?",
+        "answers": [
+            {
+                "text": "L'acqua scende sempre verso il basso per gravità",
+                "correct": false
+            },
+            {
+                "text": "Le cose tendono sempre a peggiorare se lasciate a se stesse",
+                "correct": true
+            },
+            {
+                "text": "Bisogna costruire le case in alto",
+                "correct": false
+            },
+            {
+                "text": "L'acqua è un elemento fondamentale",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Bergamasco: \n'Mèi töss che mal cumpagnì.' \nCosa significa?",
+        "answers": [
+            {
+                "text": "La tosse è una malattia grave",
+                "correct": false
+            },
+            {
+                "text": "È meglio stare soli che in cattiva compagnia",
+                "correct": true
+            },
+            {
+                "text": "Bisogna curarsi quando si è malati",
+                "correct": false
+            },
+            {
+                "text": "La solitudine fa bene alla salute",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Bolognese: \n'Al temp al cura tött mal.' \nCosa significa?",
+        "answers": [
+            {
+                "text": "I medici hanno bisogno di tempo",
+                "correct": false
+            },
+            {
+                "text": "Il tempo guarisce tutti i mali",
+                "correct": true
+            },
+            {
+                "text": "Le malattie durano sempre tanto",
+                "correct": false
+            },
+            {
+                "text": "Bisogna avere pazienza con i dottori",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Reggiano: \n'Chi l' \nCosa significa?",
+        "answers": [
+            {
+                "text": "Bisogna saper nuotare per navigare",
+                "correct": false
+            },
+            {
+                "text": "Chi ha il controllo della situazione ha tutto il potere",
+                "correct": true
+            },
+            {
+                "text": "Le barche galleggiano sull'acqua",
+                "correct": false
+            },
+            {
+                "text": "Il mare è più importante delle navi",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Bresciano: \n'Quan che' \nCosa significa?",
+        "answers": [
+            {
+                "text": "I galli prevedono il tempo",
+                "correct": false
+            },
+            {
+                "text": "Quando le cose vanno contro natura, qualcosa cambierà",
+                "correct": true
+            },
+            {
+                "text": "Gli animali hanno comportamenti strani",
+                "correct": false
+            },
+            {
+                "text": "Il letame è importante per l'agricoltura",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Vicentino: \n'No xe oro tuto quel che luze.' \nCosa significa?",
+        "answers": [
+            {
+                "text": "L'oro è un metallo prezioso",
+                "correct": false
+            },
+            {
+                "text": "Non tutto ciò che sembra prezioso lo è realmente",
+                "correct": true
+            },
+            {
+                "text": "Le cose brillanti sono belle",
+                "correct": false
+            },
+            {
+                "text": "Bisogna pulire sempre i metalli",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Trevigiano: \n'Chi ga tempo, no speta tempo.' \nCosa significa?",
+        "answers": [
+            {
+                "text": "Il tempo passa velocemente",
+                "correct": false
+            },
+            {
+                "text": "Chi ha fretta non aspetta nessuno",
+                "correct": true
+            },
+            {
+                "text": "Bisogna avere pazienza nella vita",
+                "correct": false
+            },
+            {
+                "text": "Il tempo è la cosa più preziosa",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Mantovano: \n'L' \nCosa significa?",
+        "answers": [
+            {
+                "text": "Gli uccelli stanno meglio in gabbia",
+                "correct": false
+            },
+            {
+                "text": "È meglio poco ma sicuro che molto ma incerto",
+                "correct": true
+            },
+            {
+                "text": "I boschi sono pericolosi per gli animali",
+                "correct": false
+            },
+            {
+                "text": "La libertà è sopravvalutata",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Parmigiano: \n'Chi va pian va san e va lontàn.' \nCosa significa?",
+        "answers": [
+            {
+                "text": "Camminare lentamente fa bene alla salute",
+                "correct": false
+            },
+            {
+                "text": "Chi procede con calma e costanza raggiunge meglio i suoi obiettivi",
+                "correct": true
+            },
+            {
+                "text": "Le persone anziane camminano piano",
+                "correct": false
+            },
+            {
+                "text": "I viaggi lunghi sono faticosi",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Cremonese: \n'A San Martén, ogni must l' \nCosa significa?",
+        "answers": [
+            {
+                "text": "San Martino è il santo del vino",
+                "correct": false
+            },
+            {
+                "text": "A novembre il mosto diventa vino",
+                "correct": true
+            },
+            {
+                "text": "I santi proteggono i contadini",
+                "correct": false
+            },
+            {
+                "text": "In autunno si beve di più",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Valdostano: \n'La neige de mars ne vaut pas un liard.' \nCosa significa?",
+        "answers": [
+            {
+                "text": "La neve di marzo non vale niente",
+                "correct": true
+            },
+            {
+                "text": "Marzo è il mese più freddo",
+                "correct": false
+            },
+            {
+                "text": "La neve primaverile è preziosa",
+                "correct": false
+            },
+            {
+                "text": "I soldi non comprano la neve",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Corso: \n'Chi ùn hà dinari, ùn hà onori.' \nCosa significa?",
+        "answers": [
+            {
+                "text": "Senza soldi non si ottengono onori",
+                "correct": true
+            },
+            {
+                "text": "L'onore vale più del denaro",
+                "correct": false
+            },
+            {
+                "text": "I poveri sono più onesti",
+                "correct": false
+            },
+            {
+                "text": "Il denaro porta disonore",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Triestino: \n'El mar no ga padroni.' \nCosa significa?",
+        "answers": [
+            {
+                "text": "Il mare è pericoloso",
+                "correct": false
+            },
+            {
+                "text": "Il mare appartiene a tutti",
+                "correct": true
+            },
+            {
+                "text": "I marinai sono liberi",
+                "correct": false
+            },
+            {
+                "text": "Il mare è imprevedibile",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Veronese: \n'Chi magna poenta e latte, campa soto e sora.' \nCosa significa?",
+        "answers": [
+            {
+                "text": "Chi mangia polenta e latte vive sopra e sotto terra",
+                "correct": false
+            },
+            {
+                "text": "Chi mangia cibi semplici vive a lungo",
+                "correct": true
+            },
+            {
+                "text": "I cibi tradizionali sono i migliori",
+                "correct": false
+            },
+            {
+                "text": "La polenta è nutriente",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Aquilano: \n'A Sant' \nCosa significa?",
+        "answers": [
+            {
+                "text": "Le noci si raccolgono a Sant'Anna",
+                "correct": false
+            },
+            {
+                "text": "A Sant'Anna (26 luglio) la noce sembra matura ma non lo è",
+                "correct": true
+            },
+            {
+                "text": "I santi proteggono i raccolti",
+                "correct": false
+            },
+            {
+                "text": "Le noci portano fortuna",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Pescarese: \n'Ddoppe Pasque e Natale, ogni sceme devente' \nCosa significa?",
+        "answers": [
+            {
+                "text": "Dopo le feste tutti diventano tristi",
+                "correct": false
+            },
+            {
+                "text": "Dopo Pasqua e Natale anche gli sciocchi diventano furbi",
+                "correct": true
+            },
+            {
+                "text": "Le feste rendono le persone cattive",
+                "correct": false
+            },
+            {
+                "text": "Dopo le feste si lavora di più",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Chietino: \n'La vecchiaje è' \nCosa significa?",
+        "answers": [
+            {
+                "text": "Gli anziani sono sempre malati",
+                "correct": false
+            },
+            {
+                "text": "La vecchiaia è una malattia incurabile",
+                "correct": true
+            },
+            {
+                "text": "I vecchi non vogliono curarsi",
+                "correct": false
+            },
+            {
+                "text": "La medicina non aiuta gli anziani",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Reatino: \n'A maggio ogni goccia un raggio.' \nCosa significa?",
+        "answers": [
+            {
+                "text": "A maggio ogni goccia di pioggia vale quanto un raggio di sole",
+                "correct": true
+            },
+            {
+                "text": "A maggio piove sempre",
+                "correct": false
+            },
+            {
+                "text": "Il sole di maggio è prezioso",
+                "correct": false
+            },
+            {
+                "text": "A maggio c'è sempre bel tempo",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Viterbese: \n'Chi semina spine, nun se deve scarzà scalzo.' \nCosa significa?",
+        "answers": [
+            {
+                "text": "Chi fa del male agli altri non deve poi lamentarsi",
+                "correct": true
+            },
+            {
+                "text": "Bisogna stare attenti quando si cammina",
+                "correct": false
+            },
+            {
+                "text": "Le scarpe proteggono i piedi",
+                "correct": false
+            },
+            {
+                "text": "Chi lavora deve proteggersi",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Spoletino: \n'Quaranta dì davanti a Natale e quaranta dì ddreto, l' \nCosa significa?",
+        "answers": [
+            {
+                "text": "L'inverno dura 80 giorni",
+                "correct": false
+            },
+            {
+                "text": "L'inverno vero va da metà novembre a inizio febbraio",
+                "correct": true
+            },
+            {
+                "text": "Natale è nel mezzo dell'inverno",
+                "correct": false
+            },
+            {
+                "text": "L'inverno inizia a Natale",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Anconetano: \n'El marzo pazzerello, guarda el sole e pija l' \nCosa significa?",
+        "answers": [
+            {
+                "text": "Marzo è un mese imprevedibile",
+                "correct": true
+            },
+            {
+                "text": "A marzo piove sempre",
+                "correct": false
+            },
+            {
+                "text": "Il sole di marzo è falso",
+                "correct": false
+            },
+            {
+                "text": "In marzo serve sempre l'ombrello",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Ascolano: \n'Chi fa er bene se lo scorda, chi lo riceve se lo ricorda.' \nCosa significa?",
+        "answers": [
+            {
+                "text": "Chi fa del bene se ne dimentica, chi lo riceve se lo ricorda",
+                "correct": true
+            },
+            {
+                "text": "È meglio ricevere che dare",
+                "correct": false
+            },
+            {
+                "text": "I favori si restituiscono sempre",
+                "correct": false
+            },
+            {
+                "text": "La generosità è rara",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Fermano: \n'Quaresima secca, Pasqua bagnata.' \nCosa significa?",
+        "answers": [
+            {
+                "text": "Se la Quaresima è senza pioggia, a Pasqua pioverà",
+                "correct": true
+            },
+            {
+                "text": "La Quaresima è sempre secca",
+                "correct": false
+            },
+            {
+                "text": "A Pasqua c'è sempre mal tempo",
+                "correct": false
+            },
+            {
+                "text": "Il tempo cambia con le feste",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Teramano: \n'A San Benedette, la rondine sotto er tette.' \nCosa significa?",
+        "answers": [
+            {
+                "text": "A San Benedetto (21 marzo) le rondini fanno il nido sotto i tetti",
+                "correct": true
+            },
+            {
+                "text": "San Benedetto protegge le rondini",
+                "correct": false
+            },
+            {
+                "text": "Le rondini sono sacre",
+                "correct": false
+            },
+            {
+                "text": "A marzo gli uccelli migrano",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Campobassano: \n'Cuante cchiu' \nCosa significa?",
+        "answers": [
+            {
+                "text": "Quanto più si fatica, tanto più si mangia",
+                "correct": true
+            },
+            {
+                "text": "Chi lavora mangia troppo",
+                "correct": false
+            },
+            {
+                "text": "La fatica fa venire fame",
+                "correct": false
+            },
+            {
+                "text": "I lavoratori meritano di più",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Iserniese: \n'Ddoppo la festa, viene lu juorne.' \nCosa significa?",
+        "answers": [
+            {
+                "text": "Dopo i divertimenti arriva la realtà",
+                "correct": true
+            },
+            {
+                "text": "Le feste durano poco",
+                "correct": false
+            },
+            {
+                "text": "Il giorno segue la notte",
+                "correct": false
+            },
+            {
+                "text": "Dopo le feste si riposa",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Foggiano: \n'Cu' \nCosa significa?",
+        "answers": [
+            {
+                "text": "Chi sposa una vedova sposa anche i suoi figli",
+                "correct": true
+            },
+            {
+                "text": "Le vedove hanno sempre figli",
+                "correct": false
+            },
+            {
+                "text": "I bambini vengono prima dell'amore",
+                "correct": false
+            },
+            {
+                "text": "Le seconde nozze sono complicate",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Leccese: \n'Quandu chiove cu' \nCosa significa?",
+        "answers": [
+            {
+                "text": "Quando piove col sole c'è tempo strano",
+                "correct": false
+            },
+            {
+                "text": "Quando piove col sole si sposa la figlia del diavolo",
+                "correct": true
+            },
+            {
+                "text": "Il diavolo controlla il tempo",
+                "correct": false
+            },
+            {
+                "text": "Le nozze portano pioggia",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Tarantino: \n'Cu' \nCosa significa?",
+        "answers": [
+            {
+                "text": "Chi ha pazienza, si fida della pazienza",
+                "correct": false
+            },
+            {
+                "text": "Chi ha pazienza, inganna la pazienza",
+                "correct": true
+            },
+            {
+                "text": "La pazienza è una virtù",
+                "correct": false
+            },
+            {
+                "text": "Bisogna essere sempre pazienti",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Proverbio Brindisino: \n'Quandu la luna è china, la mare è vicina.' \nCosa significa?",
+        "answers": [
+            {
+                "text": "Con la luna piena il mare è calmo",
+                "correct": false
+            },
+            {
+                "text": "La luna piena annuncia l'alta marea",
+                "correct": true
+            },
+            {
+                "text": "La luna si riflette meglio nel mare",
+                "correct": false
+            },
+            {
+                "text": "Con la luna piena si pesca meglio",
+                "correct": false
+            }
+        ]
+    }
+]

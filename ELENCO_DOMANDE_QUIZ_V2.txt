@@ -85,7 +85,7 @@ Cosa significa?
 A) Lontano dagli occhi lontano dal cuore ✓
 B) Lontano da oggi, lontano dal cielo
 C) In Liguria abitano tutti lontano
-D) ?
+D) *
 
 ---
 
@@ -95,7 +95,7 @@ Cosa significa?
 
 A) Si fa sera quando i buoni scappano nella stalla
 B) La sera sistemo la stalla quando si scapigliano i buoi ?
-C) ?
+C) *
 D) Chiudere la stalla quando i buoi sono fuggiti ✓
 
 ---
@@ -139,8 +139,8 @@ Cosa significa?
 
 A) Da un pero non è mai nata una mela ✓
 B) Da una pira non sale mai al pomeriggio ?
-C) ?
-D) ?
+C) *
+D) **
 
 ---
 
@@ -159,10 +159,10 @@ D) Quando la barba si fa bianca, lascia le donne e prendi il vino ✓
 'Chi gh’àa piàt el bèch, ‘l è mìia adàt a i puverèt.' 
 Cosa significa?
 
-A) ?
-B) ?
+A) *
+B) **
 C) Chi ha il becco piatto, non è adatto ai poveri ✓
-D) ?
+D) ***
 
 ---
 
@@ -183,8 +183,8 @@ Cosa significa?
 
 A) Chi va a letto senza cena, si agita tutta la notte ✓
 B) Chi va a letto senza cena, fa a botte tutta la notte
-C) ?
-D) ?
+C) *
+D) **
 
 ---
 
@@ -271,8 +271,8 @@ Cosa significa?
 
 A) La mascella sostiene la gamba ✓
 B) La gamba porta la giacca
-C) 
-D) 
+C) *
+D) **
 
 ---
 
@@ -283,7 +283,7 @@ Cosa significa?
 A) Prete che rosola non mette la carpa
 B) Pietra che rotola non mette il muschio ✓
 C) Ai preti non piacciono le carpe
-D) 
+D) *
 
 ---
 
@@ -401,4 +401,3 @@ LEGENDA:
 ✓ = Risposta corretta
 Le domande sono estratte dal patrimonio culturale dialettale italiano
 Il quiz online seleziona casualmente 10 domande dalle 50 disponibili
-
