@@ -3,6 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quiz interattivo sui proverbi in dialetto italiano. Metti alla prova la tua conoscenza dei detti popolari regionali.">
+    <meta name="keywords" content="quiz, proverbi, dialetto, italiano, tradizioni, cultura popolare">
+    <meta name="author" content="Quiz Dialetti">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Quiz: Proverbi in Dialetto">
+    <meta property="og:description" content="Metti alla prova la tua conoscenza dei proverbi regionali italiani">
+    <meta property="og:locale" content="it_IT">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Quiz: Proverbi in Dialetto">
+    <meta name="twitter:description" content="Metti alla prova la tua conoscenza dei proverbi regionali italiani">
+    
+    <!-- Sicurezza -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
     <title>Quiz: Proverbi in Dialetto</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,53 +39,54 @@
         <h1>Proverbi in dialetto</h1>
     </header>
     <div class="container">
-        <div id="start-screen">
-            <h2>Benvenuto al Quiz</h2>
+        <div id="start-screen" role="main" aria-labelledby="welcome-title">
+            <h2 id="welcome-title">Benvenuto al Quiz</h2>
             <p>Metti alla prova la tua conoscenza dei proverbi locali.</p>
-            <button id="start-button" disabled>Caricamento...</button>
+            <button id="start-button" disabled aria-describedby="welcome-title">Caricamento...</button>
         </div>
-        <div id="quiz-screen" class="hidden">
+        <div id="quiz-screen" class="hidden" role="main" aria-labelledby="quiz-title">
             <div id="question-container">
-                <h2 id="question">Domanda</h2>
-                <div id="answer-buttons" class="btn-grid">
+                <h2 id="quiz-title" class="sr-only">Quiz in corso</h2>
+                <h2 id="question" role="heading" aria-level="2">Domanda</h2>
+                <div id="answer-buttons" class="btn-grid" role="group" aria-labelledby="question" aria-describedby="question">
                     <!-- I pulsanti delle risposte verranno generati qui da JS -->
                 </div>
             </div>
             <div class="controls">
-                <button id="next-button" class="next-btn hidden">Prossima Domanda</button>
+                <button id="next-button" class="next-btn hidden" aria-label="Vai alla prossima domanda">Prossima Domanda</button>
             </div>
         </div>
-        <div id="result-screen" class="hidden">
-            <h2>Quiz Terminato</h2>
-            <p>Il tuo punteggio finale è: <span id="score">0</span></p>
+        <div id="result-screen" class="hidden" role="main" aria-labelledby="result-title">
+            <h2 id="result-title">Quiz Terminato</h2>
+            <p>Il tuo punteggio finale è: <span id="score" aria-live="polite">0</span></p>
             
-            <div id="answers-summary" class="answers-summary">
+            <div id="answers-summary" class="answers-summary" role="region" aria-label="Riepilogo delle risposte">
                 <!-- Il riepilogo delle risposte verrà inserito qui da JavaScript -->
             </div>
             
-            <div class="result-buttons">
-                <button id="restart-button">Rigioca</button>
-                <button id="review-button">Revisione</button>
+            <div class="result-buttons" role="group" aria-label="Azioni disponibili">
+                <button id="restart-button" aria-label="Inizia un nuovo quiz">Rigioca</button>
+                <button id="review-button" aria-label="Rivedi le domande e risposte">Revisione</button>
             </div>
         </div>
         
-        <div id="review-screen" class="hidden">
-            <h2>Revisione Quiz</h2>
-            <div class="review-progress">
+        <div id="review-screen" class="hidden" role="main" aria-labelledby="review-title">
+            <h2 id="review-title">Revisione Quiz</h2>
+            <div class="review-progress" aria-live="polite">
                 <span id="review-counter">1 di 10</span>
             </div>
             
             <div id="review-question-container">
-                <h3 id="review-question">Domanda</h3>
-                <div id="review-answers" class="btn-grid">
+                <h3 id="review-question" role="heading" aria-level="3">Domanda</h3>
+                <div id="review-answers" class="btn-grid" role="group" aria-labelledby="review-question" aria-describedby="review-counter">
                     <!-- Le risposte della revisione verranno generate qui -->
                 </div>
             </div>
             
-            <div class="review-controls">
-                <button id="review-prev" class="review-btn">← Precedente</button>
-                <button id="review-next" class="review-btn">Successiva →</button>
-                <button id="review-exit" class="review-btn exit-btn">Torna ai Risultati</button>
+            <div class="review-controls" role="group" aria-label="Controlli di navigazione revisione">
+                <button id="review-prev" class="review-btn" aria-label="Vai alla domanda precedente">← Precedente</button>
+                <button id="review-next" class="review-btn" aria-label="Vai alla domanda successiva">Successiva →</button>
+                <button id="review-exit" class="review-btn exit-btn" aria-label="Torna ai risultati del quiz">Torna ai Risultati</button>
             </div>
         </div>
     </div>
