@@ -48,7 +48,6 @@
                 <button type="button" id="font-inc" aria-label="Aumenta dimensione testo">A+</button>
             </div>
             <button type="button" id="print-btn" aria-label="Stampa risultati quiz" disabled>Stampa Risultati</button>
-            <button type="button" id="analytics-toggle" aria-expanded="false" aria-controls="analytics-panel">Analitiche</button>
         </div>
         <main id="main" aria-live="polite">
         <div id="start-screen" aria-labelledby="welcome-title">
@@ -108,16 +107,6 @@
     </div>
     <div id="notification-region" aria-live="polite" role="status" class="sr-only"></div>
     <div id="global-progress" aria-hidden="true"><span class="gp-bar" id="global-progress-bar"></span></div>
-    <section id="analytics-panel" class="hidden" aria-labelledby="analytics-title" role="region">
-        <h2 id="analytics-title">Analitiche Sessione Locale</h2>
-        <div id="analytics-content" class="analytics-content">
-            
-        </div>
-        <div class="analytics-actions">
-            <button type="button" id="analytics-refresh">Aggiorna</button>
-            <button type="button" id="analytics-reset">Reset Dati</button>
-        </div>
-    </section>
     <script src="script.js"></script>
 </body>
 </html>

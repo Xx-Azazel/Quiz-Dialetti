@@ -239,29 +239,6 @@ body.theme-contrast #restart-button { box-shadow: none !important; }
 #progress-text { position:relative; z-index:1; font-weight:600; }
 #global-progress { position:fixed; top:0; left:0; right:0; height:5px; background:rgba(0,0,0,0.08); z-index:2000; }
 #global-progress .gp-bar { display:block; height:100%; width:0%; background:linear-gradient(90deg,var(--gold), var(--primary-color)); transition: width 0.4s ease; }
-#analytics-panel {
-    margin: var(--space-6) auto var(--space-6);
-    max-width: 950px; width:95%;
-    background: var(--white); border:2px solid var(--accent-color);
-    border-radius: var(--radius-lg); padding: var(--space-6) var(--space-5);
-    box-shadow: var(--elevation-2);
-}
-#analytics-panel.hidden { display:none; }
-#analytics-panel h2 { font-family: var(--font-display); margin-top:0; font-size:1.8rem; }
-.analytics-content { display:grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); margin-bottom: var(--space-5); }
-.analytics-card { background: linear-gradient(135deg, var(--secondary-color) 0%, var(--white) 100%); padding: var(--space-4); border:1px solid var(--accent-color); border-radius: var(--radius-md); box-shadow: var(--elevation-1); position:relative; }
-.analytics-card h3 { margin:0 0 .5rem 0; font-size:1rem; letter-spacing:.5px; font-family: var(--font-display); }
-.analytics-metric { font-size:1.4rem; font-weight:600; }
-.analytics-small { font-size:.75rem; opacity:.7; }
-.analytics-table { width:100%; border-collapse: collapse; font-size:.85rem; }
-.analytics-table th, .analytics-table td { border:1px solid var(--accent-color); padding: .4rem .6rem; text-align:left; }
-.analytics-table th { background: var(--accent-color); font-weight:600; }
-.analytics-actions { display:flex; gap: var(--space-3); justify-content:flex-end; }
-.analytics-actions button { background: var(--white); border:1px solid var(--accent-color); border-radius: var(--radius-sm); padding:.6rem 1rem; cursor:pointer; font-family: var(--font-serif); }
-.analytics-actions button:hover { background: var(--accent-color); }
-@media (max-width: 640px) {
-    .analytics-content { grid-template-columns: 1fr; }
-}
 .preferences-toolbar {
     display:flex; flex-wrap:wrap; gap: var(--space-2);
     margin-bottom: var(--space-4); align-items:center;

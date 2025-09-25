@@ -505,125 +505,6 @@ function showReviewQuestion() {
     reviewPrevButton.disabled = (reviewIndex === 0);
     reviewNextButton.disabled = (reviewIndex === userAnswers.length - 1);
 }
-const ANALYTICS_KEY = 'quiz-dialetti-analytics';
-let analytics = { sessions: [], answers: [] };
-let sessionStartTs = null;
-let currentSessionId = null;
-function loadAnalytics() {
-  try { const raw = localStorage.getItem(ANALYTICS_KEY); if (raw) analytics = JSON.parse(raw); } catch(e) {}
-}
-function saveAnalytics() { try { localStorage.setItem(ANALYTICS_KEY, JSON.stringify(analytics)); } catch(e) {} }
-function startAnalyticsSession(questionCount) {
-  sessionStartTs = performance.now();
-  currentSessionId = Date.now().toString(36);
-  analytics.sessions.push({ id: currentSessionId, startedAt: Date.now(), questionCount, finished: false, durationMs: null, score: null });
-  saveAnalytics();
-}
-function recordAnswerAnalytics(questionObj, isCorrect, timeMs) {
-  analytics.answers.push({ sid: currentSessionId, q: questionObj.question.slice(0,120), correct: isCorrect, ms: Math.round(timeMs) });
-  saveAnalytics();
-}
-function endAnalyticsSession(finalScore) {
-  const s = analytics.sessions.find(s => s.id === currentSessionId);
-  if (s && !s.finished) {
-    s.finished = true; s.durationMs = Math.round(performance.now() - sessionStartTs); s.score = finalScore; saveAnalytics();
-  }
-  currentSessionId = null;
-}
-loadAnalytics();
-const _originalStartGame = startGame;
-startGame = function() {
-  _originalStartGame();
-  startAnalyticsSession(selectedQuestions.length);
-  lastQuestionStart = performance.now();
-};
-let lastQuestionStart = null;
-const _originalSelectAnswer = selectAnswer;
-selectAnswer = function(e) {
-  const now = performance.now();
-  const elapsed = lastQuestionStart ? now - lastQuestionStart : 0;
-  _originalSelectAnswer(e);
-  recordAnswerAnalytics(selectedQuestions[currentQuestionIndex], userAnswers[userAnswers.length-1].isCorrect, elapsed);
-};
-const _originalSetNextQuestion = setNextQuestion;
-setNextQuestion = function() { _originalSetNextQuestion(); lastQuestionStart = performance.now(); };
-const _originalShowResult = showResult;
-showResult = function() {
-  _originalShowResult();
-  endAnalyticsSession(score);
-  if (!document.getElementById('analytics-panel').classList.contains('hidden')) {
-    renderAnalytics();
-  }
-};
-function computeAnalytics() {
-  const totalSessions = analytics.sessions.length;
-  const completed = analytics.sessions.filter(s => s.finished);
-  const avgScore = completed.length ? (completed.reduce((a,b)=>a+(b.score||0),0)/completed.length) : 0;
-  const avgDuration = completed.length ? (completed.reduce((a,b)=>a+(b.durationMs||0),0)/completed.length) : 0;
-  const answerGroups = analytics.answers.reduce((map,a)=>{ const key=a.q; if(!map[key]) map[key]={q:key, attempts:0, correct:0, totalMs:0}; map[key].attempts++; if(a.correct) map[key].correct++; map[key].totalMs += a.ms; return map; }, {});
-  const difficulty = Object.values(answerGroups)
-    .map(o => ({
-      question:o.q,
-      attempts:o.attempts,
-      accuracy: o.correct / o.attempts,
-      avgMs: o.totalMs / o.attempts
-    }))
-    .filter(o => o.attempts >= 1)
-    .sort((a,b)=> a.accuracy - b.accuracy)
-    .slice(0,5);
-  return { totalSessions, completed: completed.length, avgScore, avgDuration, difficulty };
-}
-function formatMs(ms) { if (!ms) return '-'; const s = ms/1000; if (s < 60) return s.toFixed(1)+'s'; const m=Math.floor(s/60); const rs=(s%60).toFixed(0); return `${m}m ${rs}s`; }
-function renderAnalytics() {
-  const stats = computeAnalytics();
-  const container = document.getElementById('analytics-content');
-  if (!container) return;
-  container.innerHTML = '';
-  const cards = [
-    { title:'Sessioni Totali', value: stats.totalSessions },
-    { title:'Sessioni Concluse', value: stats.completed },
-    { title:'Punteggio Medio', value: stats.avgScore.toFixed(2) },
-    { title:'Durata Media', value: formatMs(stats.avgDuration) }
-  ];
-  cards.forEach(c => {
-    const div = document.createElement('div');
-    div.className='analytics-card';
-    div.innerHTML = `<h3>${c.title}</h3><div class="analytics-metric">${c.value}</div>`;
-    container.appendChild(div);
-  });
-  const diffWrapper = document.createElement('div');
-  diffWrapper.className='analytics-card';
-  diffWrapper.innerHTML = '<h3>Domande Più Difficili</h3>';
-  if (!stats.difficulty.length) {
-    diffWrapper.innerHTML += '<div class="analytics-small">Nessun dato ancora.</div>';
-  } else {
-    const table = document.createElement('table');
-    table.className='analytics-table';
-    table.innerHTML = '<thead><tr><th>Domanda (troncata)</th><th>Accuratezza</th><th>Tentativi</th><th>T. Medio</th></tr></thead>';
-    const tbody = document.createElement('tbody');
-    stats.difficulty.forEach(d => {
-      const tr = document.createElement('tr');
-      tr.innerHTML = `<td>${sanitizeText(d.question)}</td><td>${(d.accuracy*100).toFixed(0)}%</td><td>${d.attempts}</td><td>${formatMs(d.avgMs)}</td>`;
-      tbody.appendChild(tr);
-    });
-    table.appendChild(tbody);
-    diffWrapper.appendChild(table);
-  }
-  container.appendChild(diffWrapper);
-}
-const analyticsToggle = document.getElementById('analytics-toggle');
-const analyticsPanel = document.getElementById('analytics-panel');
-const analyticsRefreshBtn = document.getElementById('analytics-refresh');
-const analyticsResetBtn = document.getElementById('analytics-reset');
-if (analyticsToggle && analyticsPanel) {
-  analyticsToggle.addEventListener('click', () => {
-    const hidden = analyticsPanel.classList.toggle('hidden');
-    analyticsToggle.setAttribute('aria-expanded', (!hidden).toString());
-    if (!hidden) { renderAnalytics(); window.scrollTo({ top: analyticsPanel.offsetTop - 20, behavior:'smooth'}); }
-  });
-}
-if (analyticsRefreshBtn) analyticsRefreshBtn.addEventListener('click', () => renderAnalytics());
-if (analyticsResetBtn) analyticsResetBtn.addEventListener('click', () => { if (confirm('Reset analitiche locali?')) { analytics = { sessions: [], answers: [] }; saveAnalytics(); renderAnalytics(); }});
 const globalProgressBar = document.getElementById('global-progress-bar');
 const _originalUpdateProgress = updateProgress;
 updateProgress = function() {
@@ -634,3 +515,75 @@ updateProgress = function() {
     globalProgressBar.style.width = percent + '%';
   }
 };
+const QUESTIONS_CACHE_KEY = 'quiz-dialetti-questions-cache-v1';
+let questionsHashMeta = document.querySelector('meta[name="x-questions-sha"]');
+let embeddedQuestionsHash = questionsHashMeta ? questionsHashMeta.content : null;
+let cachedQuestionsBlob = null;
+function tryLoadCachedQuestions() {
+  try {
+    const raw = localStorage.getItem(QUESTIONS_CACHE_KEY);
+    if (!raw) return false;
+    const parsed = JSON.parse(raw);
+    if (!parsed.hash || !parsed.data || parsed.hash !== embeddedQuestionsHash) return false;
+    if (!Array.isArray(parsed.data) || !parsed.data.length) return false;
+    allQuestions = normalizeQuestions(parsed.data);
+    if (allQuestions.length) {
+      startButton.disabled = false;
+      startButton.textContent = 'Inizia';
+      startButton.dataset.cached = 'true';
+      return true;
+    }
+    } catch(e) { }
+  return false;
+}
+function cacheQuestions(data) {
+  try {
+    localStorage.setItem(QUESTIONS_CACHE_KEY, JSON.stringify({ hash: embeddedQuestionsHash, data }));
+    } catch(e) { }
+}
+async function fetchQuestionsFresh() {
+  const response = await fetch('questions.json', { cache: 'no-cache' });
+  if (!response.ok) throw new Error('HTTP '+response.status);
+  const data = await response.json();
+  cacheQuestions(data);
+  return data;
+}
+async function ensureQuestionsLoaded() {
+  if (allQuestions.length) return;
+  
+  const hadCache = tryLoadCachedQuestions();
+  if (hadCache) return;
+  
+  startButton.disabled = true; startButton.textContent = 'Carico domande...';
+  try {
+    const data = await fetchQuestionsFresh();
+    allQuestions = normalizeQuestions(data);
+    startButton.disabled = false; startButton.textContent = 'Inizia';
+  } catch(e) {
+    startButton.textContent = 'Errore';
+    showNotification('Impossibile caricare le domande. Riprova.', 'error');
+  }
+}
+ 
+if (startButton) {
+  startButton.addEventListener('mouseover', ensureQuestionsLoaded, { once: true });
+  startButton.addEventListener('focus', ensureQuestionsLoaded, { once: true });
+}
+ 
+const __originalStartGameLazy = startGame;
+startGame = async function() {
+  if (!allQuestions.length) {
+    await ensureQuestionsLoaded();
+  }
+  __originalStartGameLazy();
+};
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    window.requestIdleCallback ? requestIdleCallback(registerSW) : setTimeout(registerSW, 1200);
+  });
+  function registerSW() {
+    navigator.serviceWorker.register('sw.js').then(reg => {
+      console.log('SW registered', reg.scope);
+    }).catch(err => console.warn('SW registration failed', err));
+  }
+}

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import re, pathlib, json, sys, os
+import re, pathlib, json, sys, os, hashlib
 from html import escape
 
 ROOT = pathlib.Path(__file__).parent
@@ -11,14 +11,12 @@ css = (ROOT / 'style.css').read_text(encoding='utf-8')
 js = (ROOT / 'script.js').read_text(encoding='utf-8')
 questions = (ROOT / 'questions.json').read_text(encoding='utf-8')
 
-# naive minifiers
 css_min = re.sub(r'/\*.*?\*/', '', css, flags=re.DOTALL)
 css_min = re.sub(r'\s+', ' ', css_min)
 css_min = re.sub(r' ?([{};:,]) ?', r'\1', css_min)
 css_min = css_min.strip()
 
 js_min = re.sub(r'/\*.*?\*/', '', js, flags=re.DOTALL)
-# remove // comments preserving URLs: simple approach line by line
 _min_lines = []
 for line in js_min.split('\n'):
     if '//' in line:
@@ -46,28 +44,48 @@ for line in js_min.split('\n'):
     if line.strip():
         _min_lines.append(line)
 js_min='\n'.join(_min_lines)
-# collapse whitespace
 js_min = re.sub(r'\s+', ' ', js_min)
-# keep line breaks maybe minimal
 js_min = js_min.strip()
 
-# Inline CSS & JS into HTML clone
-# replace link rel stylesheet and script src with inline
-html_min = html
-html_min = re.sub(r'<link[^>]*href="style.css"[^>]*>', f'<style>{css_min}</style>', html_min)
-html_min = re.sub(r'<script src="script.js"></script>', f'<script>{js_min}</script>', html_min)
+def digest(content: bytes, length=10):
+    return hashlib.sha256(content).hexdigest()[:length]
 
-# write outputs
-(ROOT/ 'dist' / 'index.html').write_text(html_min, encoding='utf-8')
-(ROOT/ 'dist' / 'questions.json').write_text(questions, encoding='utf-8')
-(ROOT/ 'dist' / 'script.min.js').write_text(js_min, encoding='utf-8')
-(ROOT/ 'dist' / 'style.min.css').write_text(css_min, encoding='utf-8')
-print('Dist build created: dist/index.html, inline assets plus separate minified files.')
+css_hash = digest(css_min.encode('utf-8'))
+js_hash = digest(js_min.encode('utf-8'))
+questions_hash = digest(questions.encode('utf-8'))
+
+hashed_css_name = f'style.{css_hash}.min.css'
+hashed_js_name = f'script.{js_hash}.min.js'
+
+html_hashed = re.sub(r'<link[^>]*href="style.css"[^>]*>', f'<link rel="stylesheet" href="{hashed_css_name}">', html)
+html_hashed = re.sub(r'<script src="script.js"></script>', f'<script src="{hashed_js_name}" defer></script>', html_hashed)
+
+meta_tag = f'\n    <meta name="x-questions-sha" content="{questions_hash}">'
+if '</head>' in html_hashed:
+    html_hashed = html_hashed.replace('</head>', meta_tag + '\n</head>')
+
+html_inline = re.sub(r'<link[^>]*href="style.css"[^>]*>', f'<style>{css_min}</style>', html)
+html_inline = re.sub(r'<script src="script.js"></script>', f'<script>{js_min}</script>', html_inline)
+if '</head>' in html_inline:
+    html_inline = html_inline.replace('</head>', meta_tag + '\n</head>')
+
+dist_index = (DIST / 'index.html')
+dist_inline = (DIST / 'index.inline.html')
+(DIST / hashed_css_name).write_text(css_min, encoding='utf-8')
+(DIST / hashed_js_name).write_text(js_min, encoding='utf-8')
+(DIST / 'questions.json').write_text(questions, encoding='utf-8')
+dist_index.write_text(html_hashed, encoding='utf-8')
+dist_inline.write_text(html_inline, encoding='utf-8')
+print('Dist build created:')
+print(' -', dist_index.name, '(hashed assets)')
+print(' -', dist_inline.name, '(inline variant)')
+print(' -', hashed_css_name, hashed_js_name)
+print('Questions hash:', questions_hash)
 
 if '--sizes' in sys.argv:
     def sz(p):
         return os.path.getsize(p)
-    files = ['index.html','style.css','script.js','dist/index.html','dist/style.min.css','dist/script.min.js']
+    files = ['index.html','style.css','script.js'] + [f'dist/{x}' for x in [dist_index.name, dist_inline.name, hashed_css_name, hashed_js_name, 'questions.json']]
     print('\nSize report (bytes):')
     for f in files:
         if os.path.exists(f):
