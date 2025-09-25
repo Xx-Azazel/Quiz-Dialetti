@@ -8,24 +8,24 @@
     <meta name="author" content="Quiz Dialetti">
     <meta name="robots" content="index, follow">
     
-    
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Quiz: Proverbi in Dialetto">
     <meta property="og:description" content="Metti alla prova la tua conoscenza dei proverbi regionali italiani">
     <meta property="og:locale" content="it_IT">
     
-    
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Quiz: Proverbi in Dialetto">
     <meta name="twitter:description" content="Metti alla prova la tua conoscenza dei proverbi regionali italiani">
     
-    
+    <!-- Sicurezza -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     
-    
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     
     <title>Quiz: Proverbi in Dialetto</title>
@@ -64,7 +64,7 @@
                 </div>
                 <h2 id="question" role="heading" aria-level="2">Domanda</h2>
                 <div id="answer-buttons" class="btn-grid" role="group" aria-labelledby="question" aria-describedby="question">
-                    
+                    <!-- I pulsanti delle risposte verranno generati qui da JS -->
                 </div>
             </div>
             <div class="controls">
@@ -76,7 +76,7 @@
             <p>Il tuo punteggio finale è: <span id="score" aria-live="polite">0</span></p>
             
             <div id="answers-summary" class="answers-summary" role="region" aria-label="Riepilogo delle risposte">
-                
+                <!-- Il riepilogo delle risposte verrà inserito qui da JavaScript -->
             </div>
             
             <div class="result-buttons" role="group" aria-label="Azioni disponibili">
@@ -94,7 +94,7 @@
             <div id="review-question-container">
                 <h3 id="review-question" role="heading" aria-level="3">Domanda</h3>
                 <div id="review-answers" class="btn-grid" role="group" aria-labelledby="review-question" aria-describedby="review-counter">
-                    
+                    <!-- Le risposte della revisione verranno generate qui -->
                 </div>
             </div>
             
@@ -111,7 +111,7 @@
     <section id="analytics-panel" class="hidden" aria-labelledby="analytics-title" role="region">
         <h2 id="analytics-title">Analitiche Sessione Locale</h2>
         <div id="analytics-content" class="analytics-content">
-            
+            <!-- Popolato da script.js -->
         </div>
         <div class="analytics-actions">
             <button type="button" id="analytics-refresh">Aggiorna</button>
@@ -121,4 +121,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-

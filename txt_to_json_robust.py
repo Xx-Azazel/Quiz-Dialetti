@@ -1,20 +1,14 @@
 #!/usr/bin/env python3
-"""
-Convertitore TXT → JSON ROBUSTO per Quiz Proverbi Dialettali
-Ignora la numerazione e processa tutte le domande in sequenza
-"""
 
 import json
 import re
 import sys
 
 def parse_txt_to_json_robust(txt_file, json_file):
-    """Converte il file TXT in formato JSON ignorando la numerazione"""
     try:
         with open(txt_file, 'r', encoding='utf-8') as f:
             content = f.read()
         
-        # Dividi le domande usando i separatori ---
         sections = content.split('---')
         questions = []
         question_number = 1
@@ -22,7 +16,6 @@ def parse_txt_to_json_robust(txt_file, json_file):
         for section in sections:
             section = section.strip()
             
-            # Salta sezioni vuote, istruzioni o intestazioni
             if (not section or 
                 'QUIZ PROVERBI' in section or 
                 'LEGENDA:' in section or 
@@ -31,7 +24,6 @@ def parse_txt_to_json_robust(txt_file, json_file):
                 len(section) < 50):
                 continue
             
-            # Pattern più flessibile: trova qualsiasi "X. Proverbio Regione:"
             question_match = re.search(r'\d+\.\s*Proverbio\s+([^:]+):\s*\n\'([^\']+)\'\s*\nCosa significa\?', section)
             
             if not question_match:
@@ -41,10 +33,8 @@ def parse_txt_to_json_robust(txt_file, json_file):
             region = question_match.group(1).strip()
             proverb = question_match.group(2).strip()
             
-            # Costruisci la domanda completa
             question_text = f"Proverbio {region}: \n'{proverb}' \nCosa significa?"
             
-            # Estrai le risposte
             answers = []
             answer_pattern = r'([A-D])\)\s*([^✓\n]+)(\s*✓)?'
             answer_matches = re.findall(answer_pattern, section)
@@ -58,7 +48,6 @@ def parse_txt_to_json_robust(txt_file, json_file):
                         "correct": bool(is_correct.strip())
                     })
             
-            # Aggiungi se ci sono esattamente 4 risposte
             if len(answers) == 4:
                 questions.append({
                     "question": question_text,

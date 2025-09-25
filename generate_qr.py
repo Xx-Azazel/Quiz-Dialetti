@@ -1,18 +1,12 @@
 #!/usr/bin/env python3
-"""
-Script per generare un QR Code che punta al Quiz sui Dialetti
-URL: https://xx-azazel.github.io/Quiz-Dialetti/
-"""
 
 import qrcode
 from PIL import Image
 import os
 
 def generate_qr_code():
-    # URL del tuo sito GitHub Pages
     url = "https://xx-azazel.github.io/Quiz-Dialetti/"
     
-    # Creazione del QR Code
     qr = qrcode.QRCode(
         version=1,
         error_correction=qrcode.constants.ERROR_CORRECT_L,
@@ -23,10 +17,8 @@ def generate_qr_code():
     qr.add_data(url)
     qr.make(fit=True)
     
-    # Creazione dell'immagine
     img = qr.make_image(fill_color="black", back_color="white")
     
-    # Salvataggio del file
     filename = "qr_code_quiz_dialetti.png"
     img.save(filename)
     
@@ -34,7 +26,6 @@ def generate_qr_code():
     print(f"🌐 URL: {url}")
     print(f"📱 Scansiona il QR Code per accedere al quiz sui dialetti!")
     
-    # Creazione anche di una versione più grande
     qr_big = qrcode.QRCode(
         version=1,
         error_correction=qrcode.constants.ERROR_CORRECT_L,

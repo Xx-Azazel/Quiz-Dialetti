@@ -1,14 +1,9 @@
 #!/usr/bin/env python3
-"""
-Convertitore JSON → TXT per Quiz Proverbi Dialettali
-Legge questions.json e genera/aggiorna ELENCO_DOMANDE_QUIZ_V2.txt
-"""
 
 import json
 import re
 
 def parse_json_to_txt(json_file, txt_file):
-    """Converte il file JSON in formato TXT editabile"""
     try:
         with open(json_file, 'r', encoding='utf-8') as f:
             questions = json.load(f)
@@ -22,7 +17,6 @@ def parse_json_to_txt(json_file, txt_file):
             question = question_data['question']
             answers = question_data['answers']
             
-            # Estrai regione e proverbio dalla domanda
             match = re.search(r'Proverbio\s+([^:]+):\s*\n\'([^\']+)\'', question)
             if match:
                 region = match.group(1).strip()
@@ -31,13 +25,11 @@ def parse_json_to_txt(json_file, txt_file):
                 region = "Sconosciuto"
                 proverb = "Proverbio non riconosciuto"
             
-            # Scrivi la domanda
             content.append(f"{i}. Proverbio {region}: ")
             content.append(f"'{proverb}' ")
             content.append("Cosa significa?")
             content.append("")
             
-            # Scrivi le risposte
             letters = ['A', 'B', 'C', 'D']
             for j, answer in enumerate(answers[:4]):  # Massimo 4 risposte
                 letter = letters[j]
@@ -49,7 +41,6 @@ def parse_json_to_txt(json_file, txt_file):
             content.append("---")
             content.append("")
         
-        # Aggiungi sezione per nuove domande
         content.extend([
             "NUOVE DOMANDE DA AGGIUNGERE:",
             "=" * 30,

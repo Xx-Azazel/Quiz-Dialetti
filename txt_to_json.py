@@ -1,31 +1,23 @@
 #!/usr/bin/env python3
-"""
-Convertitore TXT → JSON per Quiz Proverbi Dialettali
-Legge il file ELENCO_DOMANDE_QUIZ_V2.txt e genera questions.json
-"""
 
 import json
 import re
 import sys
 
 def parse_txt_to_json(txt_file, json_file):
-    """Converte il file TXT in formato JSON"""
     try:
         with open(txt_file, 'r', encoding='utf-8') as f:
             content = f.read()
         
-        # Dividi le domande usando i separatori ---
         sections = content.split('---')
         questions = []
         
         for section in sections:
             section = section.strip()
             
-            # Salta sezioni vuote, istruzioni o che contengono solo "?"
             if not section or 'FORMATO PER' in section or 'ISTRUZIONI:' in section or section == '?':
                 continue
             
-            # Pattern per estrarre la domanda
             question_match = re.search(r'(\d+)\.\s*Proverbio\s+([^:]+):\s*\n\'([^\']+)\'\s*\nCosa significa\?', section)
             
             if not question_match:
@@ -35,10 +27,8 @@ def parse_txt_to_json(txt_file, json_file):
             region = question_match.group(2).strip()
             proverb = question_match.group(3).strip()
             
-            # Costruisci la domanda completa
             question_text = f"Proverbio {region}: \n'{proverb}' \nCosa significa?"
             
-            # Estrai le risposte
             answers = []
             answer_pattern = r'([A-D])\)\s*([^✓\n]+)(\s*✓)?'
             answer_matches = re.findall(answer_pattern, section)
@@ -52,7 +42,6 @@ def parse_txt_to_json(txt_file, json_file):
                         "correct": bool(is_correct.strip())
                     })
             
-            # Aggiungi se ci sono esattamente 4 risposte (inclusi i placeholder "?")
             if len(answers) == 4:
                 questions.append({
                     "question": question_text,
@@ -62,7 +51,6 @@ def parse_txt_to_json(txt_file, json_file):
             else:
                 print(f"⚠️  Domanda {number} saltata: trovate {len(answers)} risposte invece di 4")
         
-        # Salva il JSON
         with open(json_file, 'w', encoding='utf-8') as f:
             json.dump(questions, f, ensure_ascii=False, indent=4)
         

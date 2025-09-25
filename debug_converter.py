@@ -1,30 +1,23 @@
 #!/usr/bin/env python3
-"""
-Debug converter - mostra dettagli su ogni domanda
-"""
 
 import re
 
 def debug_parse_txt():
-    """Analizza il file TXT e mostra dettagli su ogni domanda"""
     try:
         with open("ELENCO_DOMANDE_QUIZ_V2.txt", 'r', encoding='utf-8') as f:
             content = f.read()
         
-        # Dividi le domande usando i separatori ---
         sections = content.split('---')
         question_count = 0
         
         for i, section in enumerate(sections):
             section = section.strip()
             
-            # Salta sezioni vuote o di intestazione
             if not section or 'QUIZ PROVERBI' in section or 'LEGENDA:' in section or len(section) < 50:
                 continue
             
             question_count += 1
             
-            # Pattern per estrarre la domanda
             question_match = re.search(r'(\d+)\.\s*Proverbio\s+([^:]+):\s*\n\'([^\']+)\'\s*\nCosa significa\?', section)
             
             if question_match:

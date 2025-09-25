@@ -85,7 +85,7 @@ Cosa significa?
 A) Lontano dagli occhi lontano dal cuore ✓
 B) Lontano da oggi, lontano dal cielo
 C) In Liguria abitano tutti lontano
-D) *
+D) La distanza fisica allontana anche i sentimenti
 
 ---
 
@@ -94,8 +94,8 @@ D) *
 Cosa significa?
 
 A) Si fa sera quando i buoni scappano nella stalla
-B) La sera sistemo la stalla quando si scapigliano i buoi ?
-C) *
+B) La sera sistemo la stalla quando si scapigliano i buoi 
+C) Prendere precauzioni per evitare danni
 D) Chiudere la stalla quando i buoi sono fuggiti ✓
 
 ---
@@ -138,9 +138,9 @@ D) Bisogna aspettare per avere risultati
 Cosa significa?
 
 A) Da un pero non è mai nata una mela ✓
-B) Da una pira non sale mai al pomeriggio ?
-C) *
-D) **
+B) Da una pira non sale mai al pomeriggio 
+C) Ogni famiglia ha le proprie caratteristiche
+D) Non si può pretendere l'impossibile dalla natura
 
 ---
 
@@ -148,7 +148,7 @@ D) **
 'Quand la barba la fa bianchin, lasa le done e brasa il vin.' 
 Cosa significa?
 
-A) I mantovani hanno la barba bianca ?
+A) I mantovani hanno la barba bianca 
 B) Quando l’imbianchino fa la barba, liscia le donne e cuoci il vino
 C) A Mantova le donne preferiscono il vino agli uomini con la barba bianca
 D) Quando la barba si fa bianca, lascia le donne e prendi il vino ✓
@@ -159,10 +159,10 @@ D) Quando la barba si fa bianca, lascia le donne e prendi il vino ✓
 'Chi gh’àa piàt el bèch, ‘l è mìia adàt a i puverèt.' 
 Cosa significa?
 
-A) *
-B) **
+A) Chi ha caratteristiche sbagliate per un compito
+B) Le persone inadatte non possono aiutare gli altri
 C) Chi ha il becco piatto, non è adatto ai poveri ✓
-D) ***
+D) Chi ha difetti non può essere di aiuto
 
 ---
 
@@ -183,8 +183,8 @@ Cosa significa?
 
 A) Chi va a letto senza cena, si agita tutta la notte ✓
 B) Chi va a letto senza cena, fa a botte tutta la notte
-C) *
-D) **
+C) Chi non dorme va a letto senza cena
+D) Chi non si comporta bene non cena
 
 ---
 
@@ -243,17 +243,6 @@ D) Bisogna sempre seminare per raccogliere
 
 ---
 
-23. Proverbio Umbro: 
-'Ecco, fa come i perugini che pe' fa i fini dal pane je dicono 'l pène.' 
-Cosa significa?
-
-A) Fa come i perugini che per fare il pane fino dicono pène
-B) I perugini hanno gusti strani in fatto di pane
-C) Fa come i perugini che per essere raffinati chiamano pène il pane ✓
-D) A Perugia, per avere del pane, bisogna dire parole scurrili
-
----
-
 24. Proverbio Laziale: 
 'I gguai da' pila i sa solo 'o coperchio.' 
 Cosa significa?
@@ -271,8 +260,8 @@ Cosa significa?
 
 A) La mascella sostiene la gamba ✓
 B) La gamba porta la giacca
-C) *
-D) **
+C) Le parole hanno effetti concreti
+D) Chi parla molto finisce nei guai
 
 ---
 
@@ -283,7 +272,7 @@ Cosa significa?
 A) Prete che rosola non mette la carpa
 B) Pietra che rotola non mette il muschio ✓
 C) Ai preti non piacciono le carpe
-D) *
+D) 
 
 ---
 
@@ -401,3 +390,4 @@ LEGENDA:
 ✓ = Risposta corretta
 Le domande sono estratte dal patrimonio culturale dialettale italiano
 Il quiz online seleziona casualmente 10 domande dalle 50 disponibili
+

@@ -16,14 +16,18 @@ const scoreElement = document.getElementById('score');
 const reviewQuestionElement = document.getElementById('review-question');
 const reviewAnswersElement = document.getElementById('review-answers');
 const reviewCounterElement = document.getElementById('review-counter');
+// Nuovi riferimenti per progresso e notifiche accessibili
 const progressText = document.getElementById('progress-text');
 const notificationRegion = document.getElementById('notification-region');
+
 let allQuestions = [];
-let selectedQuestions = [];
+let selectedQuestions = []; // Nuovo array per le domande selezionate
 let currentQuestionIndex;
 let score = 0;
-let userAnswers = [];
-let reviewIndex = 0;
+let userAnswers = []; // Array per tracciare le risposte dell'utente
+let reviewIndex = 0; // Indice per la modalità revisione
+
+// Funzioni per la gestione del localStorage
 const QuizState = {
     save: function() {
         try {
@@ -39,11 +43,13 @@ const QuizState = {
             console.warn('Impossibile salvare lo stato del quiz:', e);
         }
     },
+    
     load: function() {
         try {
             const saved = localStorage.getItem('quiz-dialetti-state');
             if (saved) {
                 const state = JSON.parse(saved);
+                // Controlla se lo stato è recente (max 1 ora)
                 if (Date.now() - state.timestamp < 3600000) {
                     return state;
                 }
@@ -53,6 +59,7 @@ const QuizState = {
         }
         return null;
     },
+    
     clear: function() {
         try {
             localStorage.removeItem('quiz-dialetti-state');
@@ -61,6 +68,8 @@ const QuizState = {
         }
     }
 };
+
+// Sostituzione funzione showNotification con versione accessibile
 function showNotification(message, type = 'info') {
     if (notificationRegion) {
         notificationRegion.textContent = message;
@@ -79,6 +88,8 @@ function showNotification(message, type = 'info') {
     document.body.appendChild(notification);
     setTimeout(() => { if (notification.parentElement) notification.remove(); }, 5000);
 }
+
+// Fisher-Yates shuffle
 function shuffle(array) {
     const a = [...array];
     for (let i = a.length - 1; i > 0; i--) {
@@ -87,6 +98,8 @@ function shuffle(array) {
     }
     return a;
 }
+
+// Normalizza e filtra domande (placeholder, risposte incomplete, multiple corrette)
 function normalizeQuestions(raw) {
     const placeholderRegex = /^\*+$|^\?+$/;
     return raw
@@ -102,11 +115,15 @@ function normalizeQuestions(raw) {
             return correctCount === 1;
         });
 }
+
+// Override selezione casuale domande
 function selectRandomQuestions(questions, count = 10) {
     const cleaned = normalizeQuestions(questions);
     const mixed = shuffle(cleaned);
     return mixed.slice(0, Math.min(count, mixed.length));
 }
+
+// Funzione per caricare le domande con retry mechanism
 async function loadQuestions(retries = 3) {
     for (let i = 0; i < retries; i++) {
         try {
@@ -121,6 +138,7 @@ async function loadQuestions(retries = 3) {
             }
             startButton.disabled = false;
             startButton.innerText = 'Inizia';
+            // Tentativo ripristino stato
             const saved = QuizState.load();
             if (saved && saved.selectedQuestions && saved.selectedQuestions.length) {
                 const resume = confirm('Hai un quiz interrotto. Vuoi riprendere da dove avevi lasciato?');
@@ -167,12 +185,18 @@ async function loadQuestions(retries = 3) {
         }
     }
 }
+
+// Carica le domande al caricamento della pagina
 loadQuestions();
+
+// Gestione della navigazione da tastiera
 document.addEventListener('keydown', function(e) {
+    // Durante il quiz
     if (!quizScreen.classList.contains('hidden')) {
         const buttons = Array.from(answerButtonsElement.children);
         const activeElement = document.activeElement;
         const currentIndex = buttons.indexOf(activeElement);
+        
         switch(e.key) {
             case 'ArrowDown':
             case 'ArrowRight':
@@ -201,11 +225,13 @@ document.addEventListener('keydown', function(e) {
                 break;
             case 'Escape':
                 if (confirm('Vuoi davvero uscire dal quiz? Il progresso andrà perso.')) {
-                    startGame();
+                    startGame(); // Ricomincia
                 }
                 break;
         }
     }
+    
+    // Durante la revisione
     if (!reviewScreen.classList.contains('hidden')) {
         switch(e.key) {
             case 'ArrowLeft':
@@ -226,6 +252,7 @@ document.addEventListener('keydown', function(e) {
         }
     }
 });
+
 startButton.addEventListener('click', startGame);
 nextButton.addEventListener('click', () => {
     currentQuestionIndex++;
@@ -253,15 +280,21 @@ reviewNextButton.addEventListener('click', () => {
 reviewExitButton.addEventListener('click', () => {
     reviewScreen.classList.add('hidden');
     resultScreen.classList.remove('hidden');
+    // Focus sul pulsante restart quando si torna ai risultati
     setTimeout(() => restartButton.focus(), 100);
 });
+
+// Gestione dell'uscita dalla pagina durante il quiz
 window.addEventListener('beforeunload', function(e) {
+    // Avvisa solo se il quiz è in corso
     if (!quizScreen.classList.contains('hidden') && currentQuestionIndex > 0) {
         e.preventDefault();
         e.returnValue = 'Hai un quiz in corso. Sei sicuro di voler uscire?';
         return e.returnValue;
     }
 });
+
+// Preferenze UI
 const PREF_KEY = 'quiz-dialetti-preferences';
 const themeToggleBtn = document.getElementById('theme-toggle');
 const contrastToggleBtn = document.getElementById('contrast-toggle');
@@ -269,7 +302,8 @@ const fontIncBtn = document.getElementById('font-inc');
 const fontDecBtn = document.getElementById('font-dec');
 const fontResetBtn = document.getElementById('font-reset');
 const printBtn = document.getElementById('print-btn');
-let fontScaleLevel = 2;
+let fontScaleLevel = 2; // 1..5
+
 function loadPreferences() {
     try {
         const raw = localStorage.getItem(PREF_KEY);
@@ -308,6 +342,7 @@ if (fontIncBtn) fontIncBtn.addEventListener('click', () => { if (fontScaleLevel 
 if (fontDecBtn) fontDecBtn.addEventListener('click', () => { if (fontScaleLevel > 1) { fontScaleLevel--; applyFontScale(); savePreferences(); }});
 if (fontResetBtn) fontResetBtn.addEventListener('click', () => { fontScaleLevel = 2; applyFontScale(); savePreferences(); });
 if (printBtn) printBtn.addEventListener('click', () => { window.print(); });
+// Abilita stampa solo a risultati visibili
 const observer = new MutationObserver(() => {
     if (printBtn) {
         const canPrint = !resultScreen.classList.contains('hidden');
@@ -316,6 +351,8 @@ const observer = new MutationObserver(() => {
 });
 observer.observe(resultScreen, { attributes:true, attributeFilter:['class'] });
 loadPreferences();
+
+// Estensione updateProgress per aggiornare barra percentuale
 function updateProgress() {
     if (progressText && selectedQuestions.length) {
         const current = Math.min(currentQuestionIndex + 1, selectedQuestions.length);
@@ -327,6 +364,7 @@ function updateProgress() {
         }
     }
 }
+
 function startGame() {
     score = 0;
     userAnswers = [];
@@ -345,6 +383,7 @@ function startGame() {
     }, 100);
     showNotification('Quiz avviato! Usa le frecce per navigare tra le risposte.', 'success');
 }
+
 function setNextQuestion() {
     resetState();
     if (selectedQuestions.length > currentQuestionIndex) {
@@ -354,17 +393,20 @@ function setNextQuestion() {
         showResult();
     }
 }
+
+// Funzione per sanitizzare il testo e prevenire XSS
 function sanitizeText(text) {
     const div = document.createElement('div');
     div.textContent = text;
     return div.innerHTML;
 }
+
 function showQuestion(question) {
-    questionElement.textContent = question.question;
+    questionElement.textContent = question.question; // Usa textContent per sicurezza
     question.answers.forEach(answer => {
         const button = document.createElement('button');
         const span = document.createElement('span');
-        span.textContent = sanitizeText(answer.text);
+        span.textContent = sanitizeText(answer.text); // Sanitizza il testo
         button.appendChild(span);
         button.classList.add('btn');
         button.setAttribute('role', 'button');
@@ -376,9 +418,12 @@ function showQuestion(question) {
         answerButtonsElement.appendChild(button);
     });
 }
+
 function resetState() {
     clearStatusClass(document.body);
     nextButton.classList.add('hidden');
+    
+    // Pulisce gli effetti LED e tutti i pulsanti precedenti
     while (answerButtonsElement.firstChild) {
         const button = answerButtonsElement.firstChild;
         if (button && button.classList) {
@@ -387,33 +432,44 @@ function resetState() {
         answerButtonsElement.removeChild(button);
     }
 }
+
 function selectAnswer(e) {
-    const selectedButton = e.target.closest('button');
+    const selectedButton = e.target.closest('button'); // Usa closest per gestire il click su span
     const correct = selectedButton.dataset.correct === 'true';
+    
+    // Aggiungi effetto LED alla risposta selezionata
     selectedButton.classList.add('selected-answer');
+    
+    // Salva la risposta dell'utente con tutti i dettagli della domanda
     userAnswers.push({
         question: selectedQuestions[currentQuestionIndex].question,
         answers: selectedQuestions[currentQuestionIndex].answers,
-        userAnswer: selectedButton.querySelector('span').textContent,
+        userAnswer: selectedButton.querySelector('span').textContent, // Prendi il testo dallo span
         userAnswerIndex: Array.from(answerButtonsElement.children).indexOf(selectedButton),
         correctAnswer: selectedQuestions[currentQuestionIndex].answers.find(ans => ans.correct).text,
         isCorrect: correct
     });
+    
     if (correct) {
         score++;
         showNotification('Risposta corretta! 🎉', 'success');
     } else {
         showNotification('Risposta sbagliata 😔', 'error');
     }
+    
     setStatusClass(selectedButton, correct);
     Array.from(answerButtonsElement.children).forEach(button => {
         setStatusClass(button, button.dataset.correct === 'true');
         button.disabled = true;
     });
+    
+    // Salva lo stato dopo ogni risposta
     QuizState.save();
+    
     nextButton.classList.remove('hidden');
-    nextButton.focus();
+    nextButton.focus(); // Focus sul pulsante "Prossima"
 }
+
 function setStatusClass(element, correct) {
     clearStatusClass(element);
     if (correct) {
@@ -422,21 +478,24 @@ function setStatusClass(element, correct) {
         element.classList.add('wrong');
     }
 }
+
 function clearStatusClass(element) {
     element.classList.remove('correct');
     element.classList.remove('wrong');
 }
+
 function updateProgress() {
     if (progressText && selectedQuestions.length) {
         const cur = Math.min(currentQuestionIndex + 1, selectedQuestions.length);
         progressText.textContent = `Domanda ${cur} di ${selectedQuestions.length}`;
     }
 }
+
 function showResult() {
     quizScreen.classList.add('hidden');
     resultScreen.classList.remove('hidden');
     scoreElement.textContent = `${score} su ${selectedQuestions.length}`;
-    const announcement = score >= Math.round(selectedQuestions.length * 0.7) ?
+    const announcement = score >= Math.round(selectedQuestions.length * 0.7) ? 
         `Complimenti! Hai ottenuto ${score} punti su ${selectedQuestions.length}. Ottimo risultato!` :
         score >= Math.round(selectedQuestions.length * 0.5) ?
         `Hai ottenuto ${score} punti su ${selectedQuestions.length}. Buon risultato!` :
@@ -466,27 +525,40 @@ function showResult() {
     });
     setTimeout(() => restartButton.focus(), 100);
 }
+
 function startReview() {
     reviewIndex = 0;
     resultScreen.classList.add('hidden');
     reviewScreen.classList.remove('hidden');
     showReviewQuestion();
 }
+
 function showReviewQuestion() {
     const currentAnswer = userAnswers[reviewIndex];
+    
+    // Aggiorna il contatore
     reviewCounterElement.textContent = `${reviewIndex + 1} di ${userAnswers.length}`;
+    
+    // Mostra la domanda
     reviewQuestionElement.textContent = currentAnswer.question;
+    
+    // Pulisce le risposte precedenti
     reviewAnswersElement.innerHTML = '';
+    
+    // Crea i pulsanti delle risposte
     currentAnswer.answers.forEach((answer, index) => {
         const button = document.createElement('button');
         const span = document.createElement('span');
-        span.textContent = sanitizeText(answer.text);
+        span.textContent = sanitizeText(answer.text); // Sanitizza il testo
         button.appendChild(span);
         button.classList.add('btn');
-        button.disabled = true;
+        button.disabled = true; // Non cliccabili in modalità revisione
         button.setAttribute('role', 'button');
         button.setAttribute('aria-label', `Risposta ${index + 1}: ${answer.text}`);
+        
+        // Evidenzia la risposta dell'utente e quella corretta
         if (index === currentAnswer.userAnswerIndex) {
+            // Risposta selezionata dall'utente
             button.classList.add('user-selected');
             button.setAttribute('aria-label', `La tua risposta: ${answer.text}`);
             if (currentAnswer.isCorrect) {
@@ -497,18 +569,25 @@ function showReviewQuestion() {
                 button.setAttribute('aria-label', `La tua risposta sbagliata: ${answer.text}`);
             }
         } else if (answer.correct) {
+            // Risposta corretta (se diversa da quella dell'utente)
             button.classList.add('correct');
             button.setAttribute('aria-label', `Risposta corretta: ${answer.text}`);
         }
+        
         reviewAnswersElement.appendChild(button);
     });
+    
+    // Gestisce i pulsanti di navigazione
     reviewPrevButton.disabled = (reviewIndex === 0);
     reviewNextButton.disabled = (reviewIndex === userAnswers.length - 1);
 }
+
+// Analitiche Locali (evento serale semplice)
 const ANALYTICS_KEY = 'quiz-dialetti-analytics';
 let analytics = { sessions: [], answers: [] };
 let sessionStartTs = null;
 let currentSessionId = null;
+
 function loadAnalytics() {
   try { const raw = localStorage.getItem(ANALYTICS_KEY); if (raw) analytics = JSON.parse(raw); } catch(e) {}
 }
@@ -531,13 +610,18 @@ function endAnalyticsSession(finalScore) {
   currentSessionId = null;
 }
 loadAnalytics();
+
+// Override startGame to integrate analytics (wrapped later if needed)
 const _originalStartGame = startGame;
 startGame = function() {
   _originalStartGame();
   startAnalyticsSession(selectedQuestions.length);
   lastQuestionStart = performance.now();
 };
+
 let lastQuestionStart = null;
+
+// Patch selectAnswer per misurare tempo
 const _originalSelectAnswer = selectAnswer;
 selectAnswer = function(e) {
   const now = performance.now();
@@ -545,8 +629,12 @@ selectAnswer = function(e) {
   _originalSelectAnswer(e);
   recordAnswerAnalytics(selectedQuestions[currentQuestionIndex], userAnswers[userAnswers.length-1].isCorrect, elapsed);
 };
+
+// Patch setNextQuestion per aggiornare lastQuestionStart
 const _originalSetNextQuestion = setNextQuestion;
 setNextQuestion = function() { _originalSetNextQuestion(); lastQuestionStart = performance.now(); };
+
+// Patch showResult per chiusura sessione + render analytics se aperto
 const _originalShowResult = showResult;
 showResult = function() {
   _originalShowResult();
@@ -555,6 +643,8 @@ showResult = function() {
     renderAnalytics();
   }
 };
+
+// Rendering Analytics
 function computeAnalytics() {
   const totalSessions = analytics.sessions.length;
   const completed = analytics.sessions.filter(s => s.finished);
@@ -569,16 +659,19 @@ function computeAnalytics() {
       avgMs: o.totalMs / o.attempts
     }))
     .filter(o => o.attempts >= 1)
-    .sort((a,b)=> a.accuracy - b.accuracy)
+    .sort((a,b)=> a.accuracy - b.accuracy) // from hardest to easiest by accuracy
     .slice(0,5);
   return { totalSessions, completed: completed.length, avgScore, avgDuration, difficulty };
 }
+
 function formatMs(ms) { if (!ms) return '-'; const s = ms/1000; if (s < 60) return s.toFixed(1)+'s'; const m=Math.floor(s/60); const rs=(s%60).toFixed(0); return `${m}m ${rs}s`; }
+
 function renderAnalytics() {
   const stats = computeAnalytics();
   const container = document.getElementById('analytics-content');
   if (!container) return;
   container.innerHTML = '';
+  // Metrics cards
   const cards = [
     { title:'Sessioni Totali', value: stats.totalSessions },
     { title:'Sessioni Concluse', value: stats.completed },
@@ -591,6 +684,7 @@ function renderAnalytics() {
     div.innerHTML = `<h3>${c.title}</h3><div class="analytics-metric">${c.value}</div>`;
     container.appendChild(div);
   });
+  // Difficili
   const diffWrapper = document.createElement('div');
   diffWrapper.className='analytics-card';
   diffWrapper.innerHTML = '<h3>Domande Più Difficili</h3>';
@@ -611,6 +705,8 @@ function renderAnalytics() {
   }
   container.appendChild(diffWrapper);
 }
+
+// Toggle analytics panel
 const analyticsToggle = document.getElementById('analytics-toggle');
 const analyticsPanel = document.getElementById('analytics-panel');
 const analyticsRefreshBtn = document.getElementById('analytics-refresh');
@@ -624,6 +720,8 @@ if (analyticsToggle && analyticsPanel) {
 }
 if (analyticsRefreshBtn) analyticsRefreshBtn.addEventListener('click', () => renderAnalytics());
 if (analyticsResetBtn) analyticsResetBtn.addEventListener('click', () => { if (confirm('Reset analitiche locali?')) { analytics = { sessions: [], answers: [] }; saveAnalytics(); renderAnalytics(); }});
+
+// Global progress bar update (lightweight)
 const globalProgressBar = document.getElementById('global-progress-bar');
 const _originalUpdateProgress = updateProgress;
 updateProgress = function() {
